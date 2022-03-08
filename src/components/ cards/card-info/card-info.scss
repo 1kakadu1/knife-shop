@@ -1,0 +1,120 @@
+@import "../../../styles/vars.scss";
+
+.card-info{
+    display: flex;
+    align-items: stretch;
+    &__title{
+        font-weight: bold;
+        @include adaptive-var("font-size", 24, 14, 1);
+        line-height: 34px;
+        position: relative;
+        padding-bottom: 16px;
+        margin-bottom: 12px;
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: $primary_text;
+            width: 68px;
+            height: 2px;
+        }
+    }
+    &__desc{
+        font-weight: 500;
+        @include adaptive-var("font-size", 18, 14, 1);
+        line-height: 27px;
+        margin-top: 12px;
+        
+        @media screen and (min-width: 420px) {
+            width: 70%;
+        }
+    }
+    &__list{
+        margin-top: 12px;
+    }
+    &__row{
+        display: flex;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        flex-direction: column;
+        @media screen and (min-width: 420px) {
+            flex-direction: row; 
+        }
+    }
+    &__column{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__preview{
+        max-height: 133px;
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+        @media screen and (min-width: 420px) {
+            max-height: 233px;
+        }
+    }
+    &-column{
+        &__left{
+            padding: 30px 30px 17px 30px;
+            z-index: 2;
+        }
+        &__right{
+
+            @media screen and (min-width: 420px) {
+                width: 50%;
+                position: absolute;
+                z-index: 1;
+                bottom: -10px;
+                right: -16px;
+            }
+        }
+    }
+    &__wrapper-link{
+        position: relative;
+        max-height: 113px;
+        height: 70px;
+        @media screen and (min-width: 420px) {
+            height: 113px;
+        }
+    }
+    &__link{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+    }
+    &_link-full-width{
+        width: 100%;
+    }
+}
+
+.list-info{
+    display: block;
+    margin-left: 20px;
+    &__item{
+        font-weight: 500;
+        @include adaptive-var("font-size", 18, 14, 1);
+        line-height: 34px;
+        margin-top: 13px;
+        margin-bottom: 13px;
+        position: relative;
+        &::before {
+            content: "";  
+            background: $primary_text;
+            display: inline-block; 
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            border-radius: 18px;
+            top: 12px; 
+            left: -20px;
+          }
+    }
+    &_pd-top-null{
+        margin-top: 0;
+    } 
+}

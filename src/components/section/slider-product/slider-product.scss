@@ -1,0 +1,71 @@
+@import "../../../styles/vars.scss";
+
+.slider-products{
+    overflow: hidden;
+    padding: 20px 10px;
+    margin: 20px 0px;
+    & .swiper{
+        overflow: unset;
+    }
+    &__link{
+        display: flex;
+        align-items: center;
+        & svg{
+            margin-left: 12px;
+        }  
+    }
+    &__header{
+        padding-bottom: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    & a.h3-title:hover{
+        color: $hover;
+    }
+}
+
+.swiper-slider-products{
+    padding-bottom: 30px;
+    & .swiper-pagination{
+        bottom: -10px;
+    }
+    &__pagination{
+        background-color: #898989;
+        background: #898989;
+        color: $slider_pagination;
+        width: 18px;
+        height: 2px;
+        font-size: 0px;
+        position: relative;
+        transition: opacity 200ms ease, transform 400ms ease, background-color 400ms ease;
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background-color: $slider_pagination;
+            transform: translate(20px, -50%);
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 200ms ease, transform 400ms ease, background-color 400ms ease;
+        }
+        &.swiper-pagination-bullet-active{
+            background-color: $slider_pagination_active;
+            background: $slider_pagination_active;
+            &::before{
+                background-color: $slider_pagination_active;
+                transform: translate(0px, -50%);
+                opacity: 1;
+                transition: opacity 200ms ease, transform 400ms ease, background-color 400ms ease;
+            }
+        }
+    }
+}
+
+.padding_null{
+    padding: 0px;
+}

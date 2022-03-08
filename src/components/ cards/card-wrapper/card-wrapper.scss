@@ -1,0 +1,22 @@
+@import "../../../styles/vars.scss";
+
+.card-wrapper{
+    // display: flex;
+    // align-items: stretch;
+    width: 100%;
+    min-height: 30px;
+    padding: 28px;
+    background-color: $write;
+    -webkit-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 8px 4px rgba(34, 60, 80, 0.2);
+}
+
+.card-wrapper.card-wrapper_padding-null{
+    padding: 0;
+}
+
+.card-wrapper.stretch{
+    height: 100%;
+    align-items: stretch;
+}

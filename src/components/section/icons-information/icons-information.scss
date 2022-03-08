@@ -1,0 +1,16 @@
+.icons-information{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &__item{
+        width: 100%;
+        @media screen and (min-width: 768px) {
+            width: calc(50% - 40px);
+        }
+
+        @media screen and (min-width: 992px) {
+            width: calc(25% - 40px);
+        }
+    }
+}

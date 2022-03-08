@@ -1,0 +1,21 @@
+@import "../../../../styles/vars.scss";
+
+.link-profile{
+        color: $write;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: color 300ms ease;
+        flex: 0 0 178px;
+        &__icon{
+            margin-right: 15px;
+        }
+        &:hover{
+            color: $primary_text;
+            transition: color 300ms ease;
+            & svg path{
+                fill: $primary_text;
+            }
+            
+        }
+}

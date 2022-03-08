@@ -1,0 +1,81 @@
+@import "../../styles/vars.scss";
+.wrap-menu-top{
+    background-color: $black;
+}
+.menu-top{
+    display: flex;
+    align-items: center;
+    background-color: $black;
+    min-height: 32px;
+    
+    &_container{
+        max-width: 1580px;
+        margin: 0 auto;
+    }
+    &__nav{
+        display: flex;
+        flex-direction: column;
+        @media screen and (min-width: 992px){
+            flex-grow: 1;
+            flex-direction: row;
+        }
+    }
+    &__list{
+        display: flex;
+        row-gap: 5px;
+        flex-direction: column;
+        padding-top: 94px;
+        @media screen and (min-width: 992px){
+            flex-direction: row;
+            flex-grow: 1;
+            padding-top: 0px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    &__nav__item{
+        color: $write;
+        padding: 20px 10px;
+        border-bottom: 1px solid $black_light;
+        @media screen and (min-width: 992px){
+            padding: 0px 60px 0px 0px;
+            border-bottom: none;
+        }
+    }
+    &__mobile{
+        @media screen and (max-width: 992px){
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background-color: $black;
+            width:0px;
+            height: 100%;
+            display: flex;
+            z-index: -1;
+            visibility: hidden;
+            transition: all 500ms ease-in;
+            overflow-x: hidden;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+    &_mobile_active{
+        z-index: 200;
+        width: 100%;
+        visibility: visible;
+        transition: all 500ms ease-in;
+    }
+    &__burger{
+        z-index: 210;
+        display: flex;
+        flex-grow: 1;
+        @media screen and (min-width: 992px){
+            display: none;
+        }
+    }
+    &__catalog{
+        &-title{
+            color: white;
+        }
+    }
+}

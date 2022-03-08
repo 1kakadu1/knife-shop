@@ -1,0 +1,128 @@
+@import "../../styles/vars.scss";
+
+.footer{
+    padding-top: 70px;
+    padding-bottom: 48px;
+    background-color: $footer;
+    &__copyright{
+        text-align: right;
+        font-size: 14px;
+        line-height: 27px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    &__menu-container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 30px 0px;
+    }
+    &__item{
+        width: 100%;
+        @media screen and (min-width: 600px) {
+            width: calc(50% - 60px);
+        }
+        @media screen and (min-width: 1200px) {
+            width: calc(25% - 60px);
+            border-bottom: none;
+        }
+    }
+    &__item-name{
+        color: $write;
+        font-weight: 600;
+        @include adaptive-var("font-size", 18, 14, 0);
+        line-height: 22px;
+        padding: 10px 6px;  
+    }
+    &__hr{
+        height: 1px;
+        width: 100%;
+        margin: 12px 0px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    &-contact{
+        width: 100%;
+        & .footer-menu__list{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 29px;
+            justify-content: space-between;
+            border: none;
+        }
+        @media screen and (min-width: 1200px) {
+            width: calc(25% - 60px);
+            & .footer-menu__list{
+                display: block;
+            }
+        }
+    }
+    &_show-lg{
+        display: none;
+        border: none;
+        @media screen and (min-width: 1200px) {
+            display: block;
+        }
+    }
+}
+
+.footer-menu{
+    &__list{
+        list-style: none;
+        padding: 0;
+        border-bottom: 1px solid #fff;
+        @media screen and (min-width: 992px) {
+            border-bottom: none;
+        }
+    }
+    &__item{
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+        @include adaptive-var("font-size", 18, 14, 0);
+        line-height: 27px;
+        padding: 10px 6px;
+        & a{
+            color: rgba(255, 255, 255, 0.8);
+            &:hover{
+                color: $hover;
+            }
+
+        }
+    }
+}
+
+.footer-contact-link{
+    display: flex;
+    align-items: flex-start;
+    &__icon{
+        width: 18px;
+        margin-right: 10px;
+    }
+    &__name{
+        width: 100%;
+    }
+}
+
+
+.footer-socials{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &__item{
+        width: 42px;
+        height: 42px;
+        display: block;
+        margin-right: 20px;
+        transform: scale(1);
+        cursor: pointer;
+        &:hover{
+            transform: scale(0.8);
+        }
+        &:last-child{
+            margin-right: 0px;
+        }
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+// colors
+$primary_text: #E8AA31;
+$black: #141414;
+$black_light: #3D3D3D;
+$write: #fff;
+$header_body: #ECF1F2;
+$footer: #141414;
+$black_opacity: rgba(7,7,7,0.3);
+$hover: #E8AA31;
+$badge: #E8AA31;
+$btn_default: #E8AA31;
+$slider_pagination_active: #E8AA31;
+$slider_pagination: #fff;
+$gray: #ABABAB;
+//fonts
+$font_primary: "Montserrat";
+$font_primary_bold: "Montserrat-SemiBold";
+
+$maxWidthContainer: 1582;
+$maxWidth: 1920;
+
+@mixin adaptive-var($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+    @if $type == 1{
+        #{$property}: $startSize + px;
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px)/#{$maxWidthContainer - 320}));
+        }
+    } @else if $type == 2{
+        #{$property}: $startSize + px;
+        @media (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px)/#{$maxWidth - 320}));
+        }
+    } @else{
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px)/#{$maxWidth - 320}));
+    }
+}

@@ -1,0 +1,32 @@
+@import "../../styles/vars.scss";
+
+.cart-info {
+    display: flex;
+    align-items: center;
+    &__order {
+        margin-left: 15px;
+    }
+}
+
+.cart-order{
+    display: none;
+    font-size: 14px;
+    &__price{
+        padding-bottom: 6px;
+        font-weight: 500;
+    }
+    &__btn{
+        cursor: pointer;
+        color: $primary_text;
+        font-weight: 500;
+    }
+    &_show-md{
+        display: block;
+    }
+    @media screen and (min-width: 768px){
+        display: block;
+    }
+    @media (min-width: 1200px) {
+        font-size: 16px;
+    }
+}

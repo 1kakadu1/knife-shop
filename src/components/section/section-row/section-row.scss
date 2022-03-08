@@ -1,0 +1,25 @@
+.section-row{
+    --gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+    width: calc(100% + var(--gap));
+    & .section-row__item{
+        align-items: stretch;
+        margin: var(--gap) 0 0 var(--gap);
+        width: calc(100% - var(--gap));
+        @media  (min-width: 576px) {
+            width: calc(50% - var(--gap));
+        }
+
+        @media  (min-width: 992px) {
+            width: calc(33.33% - var(--gap));
+        }
+
+        @media  (min-width: 1200px) {
+            width: calc(25% - var(--gap));
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@import '../../styles/vars.scss';
+
+.header{
+    &__top{
+        padding: 13px;
+        min-height: 46px;
+        background-color: $black;
+    }
+    &__body{
+        padding: 13px;
+        background-color: $header_body;
+        min-height: 54px;
+    }
+    &__footer{
+        background-color: $black;
+        position: relative;
+    }
+}

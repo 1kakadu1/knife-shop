@@ -1,0 +1,35 @@
+@import "../../../styles/vars.scss";
+
+.cart-btn {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    &_relative{
+        position: relative;
+    }
+    &__badge{
+        position: absolute;
+        top: -4px;
+        right: -4px;
+    }
+    &__icon{
+        width: 33px;
+        height: 33px;
+        fill: none;
+    }
+}
+
+
+.badge{
+    min-width: 14px;
+    min-height: 14px;
+    padding: 2px;
+    border-radius: 100%;
+    background-color: $badge;
+    color: $write;
+    font-size: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

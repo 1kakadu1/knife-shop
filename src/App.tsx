@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { HomePage } from './pages/home.component';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './assets/fonts/Montserrat/Montserrat-Regular.ttf';
+import './assets/fonts/Montserrat/Montserrat-SemiBold.ttf';
+import './styles/theme.scss';
+import NotificationContext, {
+	NotificationStatus,
+} from './components/notification-bar/notification-bar.context';
+import { NotificationBar } from './components/notification-bar/notification-bar.component';
+import { Provider } from 'react-redux';
+import { store } from './store/state';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [notification, setNotification] = useState({
+		message: '',
+		status: NotificationStatus.success,
+	});
+	const contextValue = { notification, updateNotification: setNotification };
+
+	return (
+		<div className="App">
+			<Provider store={store}>
+				<NotificationContext.Provider value={contextValue}>
+					<Router>
+						<Routes>
+							<Route path="/" element={<HomePage />} />
+						</Routes>
+					</Router>
+					<NotificationBar />
+				</NotificationContext.Provider>
+			</Provider>
+		</div>
+	);
 }
 
 export default App;
