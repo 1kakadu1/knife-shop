@@ -1,0 +1,85 @@
+@import "../../../styles/vars.scss";
+
+.cart-item{
+    max-height: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    @media screen and (min-width: 586px) {
+        flex-wrap: nowrap;
+        height: 100px;
+    }
+    &__preview{
+        width: 100px;
+        height: 100px;
+        margin-right: 16px;
+    }
+    &__name{
+        width: calc(49% - 38px );
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        margin-right: 16px;
+        overflow: hidden;
+        @media screen and (min-width: 586px) {
+            width: 36%;
+        }
+    }
+    &__info{
+        width: calc(49% - 100px );
+        //margin-right: 16px;
+        text-align: right;
+        @media screen and (min-width: 586px) {
+            width: 33%;
+            text-align: center;
+        }
+    }
+    &__price{
+        padding-bottom: 20px;
+        @include adaptive-var("font-size", 20, 14, 1);
+    }
+    &__size{
+        color: #ABABAB;
+        @include adaptive-var("font-size", 16, 12, 1);
+    }
+    &__actions{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        margin-right: 16px;
+        @media screen and (min-width: 586px) {
+            width: 30%;
+            justify-content: center;
+            margin-right: 0px;
+        }
+    }
+}
+
+.counter{
+    display: flex;
+    align-items: center;
+    &-btn{
+        background-color: $btn_default;
+        transition: background-color 300ms ease;
+        color: $write;
+        cursor: pointer;
+        width: 26px;
+        height: 26px;
+        font-size: 20px;
+        &:hover{
+            background-color: $black; 
+            transition: background-color 300ms ease;
+        }
+    }
+    &-btn__sub{
+
+    }
+    &__number{
+        padding: 0px 20px;
+    }
+    &-btn__add{
+
+    }
+}

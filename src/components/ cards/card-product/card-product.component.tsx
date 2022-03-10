@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ButtonDefault } from '../../buttons/default/default.component';
 import { CardWrapper } from '../card-wrapper/card-wrapper.component';
 import { ICardProduct } from './card-product.model';
@@ -9,15 +9,27 @@ import { IconFavorite } from '../../icons/favorite.icon.component';
 import starActive from '../../../assets/images/star-active.png';
 import starEmpty from '../../../assets/images/star-empty.png';
 import starHalf from '../../../assets/images/star-half.png';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { toCartSelector } from '../../../store/reducer/cart/cart.selector';
 
-export const CardProduct = ({ data, className = '' }: ICardProduct) => {
+export const CardProduct = ({
+	data,
+	className = '',
+	onAdd,
+	onChangeRating,
+}: ICardProduct) => {
+	const productCart = useSelector(
+		toCartSelector.getCartProductByID(data.id, data.size)
+	);
 	const [selecting, setSelecting] = useState<{
 		isSelecting: boolean;
 		selectingValue: number;
 	} | null>(null);
+
 	const config = {
 		totalStars: 5,
-		initialSelectedValue: 4,
+		initialSelectedValue: data.userStars,
 		renderFull: <img alt="star" src={starActive} />,
 		renderEmpty: <img alt="star" src={starEmpty} />,
 		renderHalf: <img alt="star" src={starHalf} />,
@@ -26,14 +38,26 @@ export const CardProduct = ({ data, className = '' }: ICardProduct) => {
 	return (
 		<CardWrapper paddingNull>
 			<div className={'card-product ' + className}>
-				<div className="card-product__preview-container">
+				<Link className="card-product__preview-container" to={data.href}>
 					<img src={data.preview} alt="" className="card-product__preview" />
-				</div>
+					<div
+						className={`card-product__counter${
+							productCart && productCart.count
+								? ' card-product_counter-active'
+								: ''
+						}`}
+					>
+						{productCart?.count || 0}
+					</div>
+				</Link>
 
 				<div className="card-product__header card-product_padding">
-					<h3 className="card-product__name card-product__title">
-						{data.name}
-					</h3>
+					<Link to={data.href}>
+						<h3 className="card-product__name card-product__title">
+							{data.name}
+						</h3>
+					</Link>
+
 					<div className="card-product__row">
 						<div className="card-product__row-item item_bold">{data.size}</div>
 						<div className="card-product__row-item item_bold">
@@ -43,7 +67,9 @@ export const CardProduct = ({ data, className = '' }: ICardProduct) => {
 					<div className="card-product__row">
 						<div className="card-product__row-item item_star">
 							<StarsRating
-								onStarsRated={(value: number) => {}}
+								onStarsRated={(value: number) => {
+									onChangeRating(data.id, data.size, value);
+								}}
 								onSelecting={(isSelecting: boolean, selectingValue: number) => {
 									setSelecting({ isSelecting, selectingValue });
 								}}
@@ -71,7 +97,22 @@ export const CardProduct = ({ data, className = '' }: ICardProduct) => {
 					</div>
 				</div>
 				<div className="card-product__footer card-product_padding">
-					<ButtonDefault className="card-product__btn-add button-cart">
+					<ButtonDefault
+						className="card-product__btn-add button-cart"
+						onClick={() =>
+							onAdd(
+								{
+									title: data.name,
+									preview: data.preview,
+									id: data.id,
+									price: data.price,
+									count: 1,
+									productSize: data.size,
+								},
+								data.size
+							)
+						}
+					>
 						<div className="button-cart__wrap">
 							<span className="button-cart__name">В корзину</span>
 							<span className="button-cart__icon">

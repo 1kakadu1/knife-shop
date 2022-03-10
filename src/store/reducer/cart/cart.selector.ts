@@ -7,23 +7,44 @@ export const cartSelector = createFeatureSelector<ICart>(CART_KEY);
 
 const isOpen = createSelector(cartSelector, ({ isOpen }) => isOpen);
 
-const getCartProduct = (id: string) =>
+const getCartProductsByID = (id: string) =>
 	createSelector(cartSelector, ({ products }) =>
 		products.filter((x) => x.id === id)
 	);
-
-const getTotalPrice = (id: string) =>
+const getCartProductByID = (id: string, size: string) =>
+	createSelector(cartSelector, ({ products }) =>
+		products.find((x) => x.id === id && x.productSize === size)
+	);
+const getTotalPrice = (id?: string) =>
 	createSelector(cartSelector, ({ products }) => {
 		let totalPrice = 0;
-		products.forEach((element) => {
-			totalPrice +=
+		const productsItems = id ? products.filter((x) => x.id === id) : products;
+
+		productsItems.forEach((element) => {
+			const price =
 				typeof element.price === 'string'
 					? parseInt(element.price)
 					: element.price;
+			totalPrice += price * element.count;
 		});
+
 		return totalPrice;
 	});
 
 const cart = createSelector(cartSelector, ({ products }) => products);
+const cartCounter = createSelector(cartSelector, ({ products }) => {
+	let counter = 0;
+	products.forEach((item) => {
+		counter += item.count;
+	});
+	return counter;
+});
 
-export const toCartSelector = { getCartProduct, cart, isOpen, getTotalPrice };
+export const toCartSelector = {
+	getCartProductsByID,
+	getCartProductByID,
+	cart,
+	isOpen,
+	getTotalPrice,
+	cartCounter,
+};

@@ -7,6 +7,10 @@ import 'swiper/css/pagination';
 import './slider-product.scss';
 import { CardProduct } from '../../ cards/card-product/card-product.component';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toProductsAction } from '../../../store/reducer/products/products.reducer';
+import { toCartAction } from '../../../store/reducer/cart/cart.reducer';
+import { ICartItem } from '../../../store/reducer/cart/cart.model';
 
 export const swiperDefaultConfig = {
 	spaceBetween: 20,
@@ -37,6 +41,12 @@ export const SliderProduct = ({
 	autoplay,
 	swiperProps = { ...swiperDefaultConfig },
 }: ISliderProductProps) => {
+	const dispatch = useDispatch();
+	const onAddCart = (product: ICartItem, size: string) =>
+		dispatch(toCartAction.add({ size, prod: product }));
+	const onChangeRating = (id: string, size: string, stars: number) =>
+		dispatch(toProductsAction.productsStars({ id, size, stars }));
+
 	const configSwiper = { ...swiperProps };
 	const pagination = {
 		clickable: true,
@@ -87,7 +97,11 @@ export const SliderProduct = ({
 			<Swiper className="swiper-slider-products" {...configSwiper}>
 				{slides.map((item) => (
 					<SwiperSlide key={'SwiperSlide-' + item.id}>
-						<CardProduct data={{ ...item }} />
+						<CardProduct
+							data={{ ...item }}
+							onAdd={onAddCart}
+							onChangeRating={onChangeRating}
+						/>
 					</SwiperSlide>
 				))}
 			</Swiper>

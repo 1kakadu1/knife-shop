@@ -10,6 +10,7 @@ import NotificationContext, {
 import { NotificationBar } from './components/notification-bar/notification-bar.component';
 import { Provider } from 'react-redux';
 import { store } from './store/state';
+import { CartMini } from './components/cart/cart.mini.components';
 
 function App() {
 	const [notification, setNotification] = useState({
@@ -28,6 +29,7 @@ function App() {
 						</Routes>
 					</Router>
 					<NotificationBar />
+					<CartMini portal />
 				</NotificationContext.Provider>
 			</Provider>
 		</div>

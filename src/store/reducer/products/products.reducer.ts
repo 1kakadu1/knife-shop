@@ -44,6 +44,20 @@ const productsFilter = (
 	state.filter = { ...payload };
 };
 
+const productsStars = (
+	state: IProductsState,
+	{ payload }: { payload: { id: string; size: string; stars: number } }
+) => {
+	const items = [...state.products];
+	const item = items.findIndex(
+		(x) => x.id === payload.id && x.size === payload.size
+	);
+	console.log('aaaa', item, payload);
+	if (item !== -1) {
+		state.products[item].userStars = payload.stars;
+	}
+};
+
 export const productsSlice = createSlice({
 	name: PRODUCTS_KEY,
 	initialState: productsStateMock,
@@ -53,6 +67,7 @@ export const productsSlice = createSlice({
 		productsRequest,
 		productsRequestSuccess,
 		productsFilter,
+		productsStars,
 	},
 });
 

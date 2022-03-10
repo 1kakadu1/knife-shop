@@ -22,12 +22,7 @@ const MenuTopNav = ({ links, catalogMenu, open }: IMenuTopNavProps) => {
 				))}
 			</ul>
 			{catalogMenu && breakpoint < WindowBreakpoints.lg && (
-				<div className="menu-top__catalog">
-					{/* <div className="menu-top__catalog-title">
-                                    Каталог товаров:
-                                </div> */}
-					{catalogMenu}
-				</div>
+				<div className="menu-top__catalog">{catalogMenu}</div>
 			)}
 		</nav>
 	);

@@ -66,6 +66,10 @@ const changeComments = (
 	}
 };
 
+const toggleCart = (state: ICart, { payload }: { payload: boolean }) => {
+	state.isOpen = payload;
+};
+
 export const cartSlice = createSlice({
 	name: CART_KEY,
 	initialState: {
@@ -78,6 +82,7 @@ export const cartSlice = createSlice({
 		clear,
 		remove,
 		changeComments,
+		toggleCart,
 	},
 });
 
