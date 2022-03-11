@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toFavoriteAction } from '../../store/reducer/favorite/favorite.reducer';
 import { CartInfoBtn } from '../cart-info-btn/cart-info-btn.component';
 
 import { CityContact } from '../city-contact/city-contact.component';
@@ -16,6 +18,11 @@ const phones = [
 ];
 
 export const MenuToolbar = () => {
+	const dispatch = useDispatch();
+	const onOpenFavorite = () => {
+		dispatch(toFavoriteAction.toggleWindow(true));
+	};
+
 	return (
 		<div className="menu-toolbar">
 			<div className="menu-toolbar__logo">
@@ -29,8 +36,11 @@ export const MenuToolbar = () => {
 			</div>
 
 			<div className="menu-toolbar-actions">
-				<div className="menu-toolbar-actions__favorite favorite">
-					<IconFavorite className={'favorite__icon'} />
+				<div
+					className="menu-toolbar-actions__favorite favorite-btn"
+					onClick={onOpenFavorite}
+				>
+					<IconFavorite className={'favorite-btn__icon'} />
 				</div>
 				<CartInfoBtn />
 			</div>

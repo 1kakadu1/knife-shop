@@ -7,6 +7,7 @@ export const CartItem = ({
 	onAdd,
 	onSub,
 	className = '',
+	onRemove,
 }: ICartItemProps) => {
 	return (
 		<div className={'cart-item' + className}>
@@ -18,21 +19,33 @@ export const CartItem = ({
 			</div>
 
 			<div className="cart-item__actions">
-				<div className="counter">
+				{onAdd && onSub && (
+					<div className="counter">
+						<button
+							onClick={() => onSub(item, item.productSize)}
+							className="counter-btn counter-btn__sub"
+						>
+							-
+						</button>
+						<div className="counter__number">{item.count}</div>
+						<button
+							onClick={() => onAdd(item, item.productSize)}
+							className="counter-btn counter-btn__add"
+						>
+							+
+						</button>
+					</div>
+				)}
+				{onRemove && (
 					<button
-						onClick={() => onSub(item, item.productSize)}
-						className="counter-btn counter-btn__sub"
+						onClick={() => onRemove(item.id, item.productSize)}
+						className="btn-close"
 					>
-						-
+						<svg focusable="false" viewBox="0 0 24 24">
+							<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+						</svg>
 					</button>
-					<div className="counter__number">{item.count}</div>
-					<button
-						onClick={() => onAdd(item, item.productSize)}
-						className="counter-btn counter-btn__add"
-					>
-						+
-					</button>
-				</div>
+				)}
 			</div>
 		</div>
 	);

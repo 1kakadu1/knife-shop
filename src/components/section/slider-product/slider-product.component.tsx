@@ -7,10 +7,13 @@ import 'swiper/css/pagination';
 import './slider-product.scss';
 import { CardProduct } from '../../ cards/card-product/card-product.component';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toProductsAction } from '../../../store/reducer/products/products.reducer';
 import { toCartAction } from '../../../store/reducer/cart/cart.reducer';
 import { ICartItem } from '../../../store/reducer/cart/cart.model';
+import { toFavoriteAction } from '../../../store/reducer/favorite/favorite.reducer';
+import { toFavoriteSelector } from '../../../store/reducer/favorite/favorite.selector';
+import { IFavoriteData } from '../../../store/reducer/favorite/favorite.model';
 
 export const swiperDefaultConfig = {
 	spaceBetween: 20,
@@ -46,6 +49,9 @@ export const SliderProduct = ({
 		dispatch(toCartAction.add({ size, prod: product }));
 	const onChangeRating = (id: string, size: string, stars: number) =>
 		dispatch(toProductsAction.productsStars({ id, size, stars }));
+	const onToggleFavorite = (product: IFavoriteData, size: string) =>
+		dispatch(toFavoriteAction.toggleFavorite({ product, size }));
+	const favorites = useSelector(toFavoriteSelector.favorites);
 
 	const configSwiper = { ...swiperProps };
 	const pagination = {
@@ -101,6 +107,8 @@ export const SliderProduct = ({
 							data={{ ...item }}
 							onAdd={onAddCart}
 							onChangeRating={onChangeRating}
+							onChangeFavorite={onToggleFavorite}
+							isFavorite={!!favorites.find((x) => x.id === item.id)}
 						/>
 					</SwiperSlide>
 				))}

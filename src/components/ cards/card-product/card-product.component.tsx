@@ -18,6 +18,9 @@ export const CardProduct = ({
 	className = '',
 	onAdd,
 	onChangeRating,
+	isFavorite,
+	onChangeFavorite,
+	onCompare,
 }: ICardProduct) => {
 	const productCart = useSelector(
 		toCartSelector.getCartProductByID(data.id, data.size)
@@ -88,12 +91,34 @@ export const CardProduct = ({
 						{data.price} $
 					</div>
 					<div className="card-product__actions">
-						<div className="card-product__action card-product_compare">
-							<IconCompare />
-						</div>
-						<div className="card-product__action card-product_favorite">
-							<IconFavorite />
-						</div>
+						{onCompare && (
+							<div className="card-product__action card-product_compare">
+								<IconCompare />
+							</div>
+						)}
+
+						{onChangeFavorite && (
+							<div
+								className={`card-product__action card-product_favorite${
+									isFavorite === true ? ' isFavorite' : ''
+								}`}
+								onClick={() => {
+									onChangeFavorite(
+										{
+											title: data.name,
+											preview: data.preview,
+											id: data.id,
+											price: data.price,
+											count: 0,
+											productSize: data.size,
+										},
+										data.size
+									);
+								}}
+							>
+								<IconFavorite />
+							</div>
+						)}
 					</div>
 				</div>
 				<div className="card-product__footer card-product_padding">

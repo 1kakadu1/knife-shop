@@ -88,6 +88,15 @@
     &_counter-active{
         opacity: 1;
     }
+    &_favorite{
+        & svg path{
+            transition: all 300ms ease;
+        }
+        &.isFavorite svg path{
+            fill: $badge;
+        }
+    }
+    
 }
 
 .card-product_padding{

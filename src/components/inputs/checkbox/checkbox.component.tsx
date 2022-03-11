@@ -11,6 +11,7 @@ export const Checkbox = ({
 	label,
 }: ICheckboxProps) => {
 	const onChangeInput = () => {
+		console.log(!checked);
 		onChange && onChange(!checked, name);
 	};
 
@@ -21,8 +22,9 @@ export const Checkbox = ({
 				type="checkbox"
 				id={id}
 				name="color-1"
+				onChange={() => void 0}
 				value={value || name}
-				defaultChecked={checked}
+				checked={checked}
 			/>
 			{label && <label htmlFor="color-1">{label}</label>}
 		</div>

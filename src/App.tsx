@@ -11,6 +11,7 @@ import { NotificationBar } from './components/notification-bar/notification-bar.
 import { Provider } from 'react-redux';
 import { store } from './store/state';
 import { CartMini } from './components/cart/cart.mini.components';
+import { FavoriteModal } from './components/favorite/favorite.component';
 
 function App() {
 	const [notification, setNotification] = useState({
@@ -30,6 +31,7 @@ function App() {
 					</Router>
 					<NotificationBar />
 					<CartMini portal />
+					<FavoriteModal />
 				</NotificationContext.Provider>
 			</Provider>
 		</div>
