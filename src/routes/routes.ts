@@ -3,4 +3,5 @@ export enum RoutsPath {
 	news = '/news',
 	product = '/product',
 	products = '/products',
+	not_found = '/404',
 }

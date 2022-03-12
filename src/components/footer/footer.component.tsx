@@ -11,6 +11,13 @@ import tg from '../../assets/images/socials/tg.png';
 import wt from '../../assets/images/socials/wt.png';
 import vb from '../../assets/images/socials/vb.png';
 import { Subscription } from '../subscription/subscription.component';
+import {
+	ADDRESS,
+	EMAIL,
+	PHONE_DEFAULT,
+	SOCIAL_LINK,
+	TIME_WORK,
+} from '../../const/setting.const';
 
 const FooterMenuItem = ({
 	menu,
@@ -70,7 +77,10 @@ export const Footer = () => {
 							<FooterMenuItem
 								title="КОНТАКТЫ"
 								items={[
-									<a href="tel:99009999999" className="footer-contact-link">
+									<a
+										href={'tel:' + PHONE_DEFAULT.link}
+										className="footer-contact-link"
+									>
 										<div className="footer-contact-link__icon">
 											<svg
 												width="15"
@@ -86,10 +96,15 @@ export const Footer = () => {
 											</svg>
 										</div>
 										<div className="footer-contact-link__name">
-											9 (900) 999-99-99
+											{PHONE_DEFAULT.title}
 										</div>
 									</a>,
-									<a href="#" target="_blank" className="footer-contact-link">
+									<a
+										href={ADDRESS.link}
+										target="_blank"
+										className="footer-contact-link"
+										rel="noreferrer"
+									>
 										<div className="footer-contact-link__icon">
 											<svg
 												width="11"
@@ -109,7 +124,7 @@ export const Footer = () => {
 											</svg>
 										</div>
 										<div className="footer-contact-link__name">
-											Город, улица, д. 1, офис «6Б»
+											{ADDRESS.title}
 										</div>
 									</a>,
 									<span className="footer-contact-link">
@@ -138,9 +153,7 @@ export const Footer = () => {
 												/>
 											</svg>
 										</div>
-										<div className="footer-contact-link__name">
-											Пн-Пт 7:00 - 16:00 (МСК)
-										</div>
+										<div className="footer-contact-link__name">{TIME_WORK}</div>
 									</span>,
 									<a
 										href="mailto:info@mail.test"
@@ -169,36 +182,38 @@ export const Footer = () => {
 											</svg>
 										</div>
 
-										<div className="footer-contact-link__name">
-											info@mail.test
-										</div>
+										<div className="footer-contact-link__name">{EMAIL}</div>
 									</a>,
 									<div className="footer-socials">
 										<a
-											href="#"
+											href={SOCIAL_LINK.tg}
 											target="_blank"
 											className="footer-socials__item"
+											rel="noreferrer"
 										>
 											<img src={tg} alt="" />
 										</a>
 										<a
-											href="#"
+											href={SOCIAL_LINK.fb}
 											target="_blank"
 											className="footer-socials__item"
+											rel="noreferrer"
 										>
 											<img src={fb} alt="" />
 										</a>
 										<a
-											href="#"
+											href={SOCIAL_LINK.tw}
 											target="_blank"
 											className="footer-socials__item"
+											rel="noreferrer"
 										>
 											<img src={wt} alt="" />
 										</a>
 										<a
-											href="#"
+											href={SOCIAL_LINK.vb}
 											target="_blank"
 											className="footer-socials__item"
+											rel="noreferrer"
 										>
 											<img src={vb} alt="" />
 										</a>

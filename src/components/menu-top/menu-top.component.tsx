@@ -37,13 +37,28 @@ export const MenuTop = ({
 }: IMenuTopProps) => {
 	const [open, setOpen] = useState<boolean>(false);
 	const portalRef = useRef<HTMLElement | null>();
+	const bodyRef = useRef<HTMLElement | null>();
+
 	const onToggle = (value: boolean) => {
 		setOpen(value);
 	};
 
 	useEffect(() => {
 		portalRef.current = document.getElementById('portal');
+		bodyRef.current = document.querySelector('body');
+		return () => {
+			if (bodyRef.current) bodyRef.current.style.overflow = '';
+		};
 	}, []);
+
+	useEffect(() => {
+		if (bodyRef.current)
+			if (open) {
+				bodyRef.current.style.overflow = 'hidden';
+			} else {
+				bodyRef.current.style.overflow = '';
+			}
+	}, [open]);
 
 	return (
 		<div className={`menu-top ${container ? 'menu-top_container' : ''}`}>

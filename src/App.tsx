@@ -12,6 +12,8 @@ import { Provider } from 'react-redux';
 import { store } from './store/state';
 import { CartMini } from './components/cart/cart.mini.components';
 import { FavoriteModal } from './components/favorite/favorite.component';
+import { RoutsPath } from './routes/routes';
+import { NotFoundPage } from './pages/not-found/not-found.component';
 
 function App() {
 	const [notification, setNotification] = useState({
@@ -26,7 +28,8 @@ function App() {
 				<NotificationContext.Provider value={contextValue}>
 					<Router>
 						<Routes>
-							<Route path="/" element={<HomePage />} />
+							<Route path={RoutsPath.home} element={<HomePage />} />
+							<Route path={'*'} element={<NotFoundPage />} />
 						</Routes>
 					</Router>
 					<NotificationBar />

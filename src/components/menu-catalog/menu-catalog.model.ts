@@ -1,3 +1,5 @@
+import { ICategoryItemData } from '../../store/reducer/category/category.model';
+
 export interface IMenuCatalogProps {
 	fixed?: boolean;
 	portal?: boolean;
@@ -14,15 +16,10 @@ export interface ISubMenuCatalogProps {
 export interface IMenuCatalog {
 	name: string;
 	href: string;
-	cat: string;
+	id: string;
 	catList: ISubMenuCat[];
 }
 
-export interface ISubMenuCat {
-	subMenu: {
-		name: string;
-		href: string;
-	}[];
-	cat: string;
-	href: string;
+export interface ISubMenuCat extends ICategoryItemData {
+	subMenu?: ICategoryItemData[];
 }
