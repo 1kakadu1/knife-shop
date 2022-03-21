@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { HomePage } from './pages/home.component';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Navigate,
+} from 'react-router-dom';
 import './assets/fonts/Montserrat/Montserrat-Regular.ttf';
 import './assets/fonts/Montserrat/Montserrat-SemiBold.ttf';
 import './styles/theme.scss';
@@ -14,6 +19,7 @@ import { CartMini } from './components/cart/cart.mini.components';
 import { FavoriteModal } from './components/favorite/favorite.component';
 import { RoutsPath } from './routes/routes';
 import { NotFoundPage } from './pages/not-found/not-found.component';
+import { ProductsPage } from './pages/products/products.componet';
 
 function App() {
 	const [notification, setNotification] = useState({
@@ -29,6 +35,14 @@ function App() {
 					<Router>
 						<Routes>
 							<Route path={RoutsPath.home} element={<HomePage />} />
+							<Route
+								path={RoutsPath.products + '/:page'}
+								element={<ProductsPage />}
+							/>
+							<Route
+								path={RoutsPath.products}
+								element={<Navigate replace to={RoutsPath.products + '/1'} />}
+							/>
 							<Route path={'*'} element={<NotFoundPage />} />
 						</Routes>
 					</Router>

@@ -90,6 +90,17 @@ body::-webkit-scrollbar {
     background-color: #E8AA31;    /* color of the scroll thumb */
   }
 
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
   .h1-title{
     font-weight: bold;
     @include adaptive-var("font-size", 30, 16, 1);
@@ -145,4 +156,8 @@ body::-webkit-scrollbar {
         font-size: 1.25rem;
         
     }
+}
+
+input, button, span, a, div{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

@@ -31,7 +31,6 @@
         background-size: 50% 50%;
         position: absolute;
         left: 0px;
-        top: 5px;
         transition: all 300ms ease;
       }
   
@@ -73,4 +72,9 @@
         margin-bottom: 1em;
         position: relative;
         cursor: pointer;
+      }
+
+      .checkbox-counter{
+        margin-left: 14px;
+        color:#E8AA31;
       }

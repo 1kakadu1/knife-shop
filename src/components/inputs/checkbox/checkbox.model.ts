@@ -1,8 +1,8 @@
 export interface ICheckboxProps {
 	checked: boolean;
-	name: string;
+	name?: string;
 	id: string;
-	onChange?: (value: boolean, name?: string) => void;
+	onChange?: (checked: boolean, name?: string, value?: string) => void;
 	value?: string;
-	label: string;
+	label: string | JSX.Element;
 }

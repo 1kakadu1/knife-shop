@@ -5,7 +5,5 @@ export const productsStateMock: IProductsState = {
 	isLoading: false,
 	error: '',
 	products: sliderProductsMock,
-	filter: {
-		order: 'asc',
-	},
+	filter: {},
 };

@@ -1,3 +1,5 @@
+import { ICategoryItemData } from '../category/category.model';
+
 export interface IProductsState {
 	isLoading: boolean;
 	error: string;
@@ -12,13 +14,30 @@ export interface IProductData {
 	price: string | number;
 	href: string;
 	desc: string;
-	category: string[];
+	material: string[];
+	category: ICategoryItemData[];
 	countComments: number;
 	userStars?: number;
-	usersStars?: number;
+	usersStars: number;
 	size: string;
 }
 
-export interface IProductsFilter {
-	order: 'asc' | 'desc';
+export enum FiltersKey {
+	order = 'order',
+	rangePrice = 'rangePrice',
+	production = 'production',
+	rangeWidth = 'rangeWidth',
+	rating = 'rating',
+	category = 'category',
 }
+
+export interface IProductsFilter {
+	[FiltersKey.order]?: TypeOrder;
+	[FiltersKey.rangePrice]?: number[];
+	[FiltersKey.production]?: { [key: string]: string };
+	[FiltersKey.rangeWidth]?: number[];
+	[FiltersKey.rating]?: { [key: string]: string };
+	[FiltersKey.category]?: { [key: string]: string };
+}
+
+export type TypeOrder = 'price-asc' | 'price-desc' | 'popular';

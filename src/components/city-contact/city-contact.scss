@@ -20,7 +20,7 @@
         margin-right: 10px;
     }
     &__name{
-        font-family: $font_primary_bold;
+        // font-family: $font_primary_bold;
         font-weight: 600;
         @include adaptive-var("font-size", 18, 14, 1)
     }

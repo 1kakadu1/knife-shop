@@ -11,5 +11,8 @@
     &__checkbox{
         margin-top: 11px;
         margin-bottom: 11px;
+        & .custom-checkbox+label::before{
+            top: 5px;
+        }
     }
 }

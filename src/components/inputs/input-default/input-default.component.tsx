@@ -17,6 +17,9 @@ export const InputDefault = ({
 	error: errorProps,
 	validation,
 	validationOnChange,
+	write,
+	min,
+	max,
 }: IInputDefaultProps) => {
 	const [value, setValue] = useState('');
 	const [error, setError] = useState(errorProps || '');
@@ -77,12 +80,18 @@ export const InputDefault = ({
 				}`}
 			>
 				<input
-					className={'input-form-control__input ' + classNameInput}
+					className={
+						'input-form-control__input ' +
+						classNameInput +
+						(write ? ' input-form-control_write' : '')
+					}
 					onChange={onChangeInput}
 					value={valueProps ? valueProps : value}
 					placeholder={placeholder}
 					type={type}
 					id={id}
+					max={max}
+					min={min}
 				/>
 				{onSubmit && (
 					<ButtonDefault

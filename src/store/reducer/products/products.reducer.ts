@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PRODUCTS_KEY } from './products.const';
 import { productsStateMock } from './products.mock';
 import {
+	FiltersKey,
 	IProductData,
 	IProductsFilter,
 	IProductsState,
@@ -41,7 +42,25 @@ const productsFilter = (
 	state: IProductsState,
 	{ payload }: { payload: IProductsFilter }
 ) => {
-	state.filter = { ...payload };
+	const filter = { ...payload };
+
+	Object.keys(filter).forEach((item) => {
+		if (
+			typeof filter[item as FiltersKey] === 'object' &&
+			JSON.stringify(filter[item as FiltersKey]) === '{}'
+		) {
+			delete filter[item as FiltersKey];
+		}
+
+		if (
+			filter[item as FiltersKey] === undefined ||
+			filter[item as FiltersKey] === null
+		) {
+			delete filter[item as FiltersKey];
+		}
+	});
+
+	state.filter = { ...filter };
 };
 
 const productsStars = (
@@ -52,7 +71,6 @@ const productsStars = (
 	const item = items.findIndex(
 		(x) => x.id === payload.id && x.size === payload.size
 	);
-	console.log('aaaa', item, payload);
 	if (item !== -1) {
 		state.products[item].userStars = payload.stars;
 	}

@@ -1,0 +1,28 @@
+@import "../../styles/vars.scss";
+
+.breadcrumbs{
+    display: flex;
+    align-items: center;
+    &__separator{
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 8px;
+        height: 12px;
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+    }
+    &__link{
+        color: $black_light;
+        &:hover{
+            color: $hover;
+        }
+    }
+    &_link-disable{
+        color: $hover;
+        &:hover{
+            color: $hover;
+        }
+    }
+}

@@ -74,4 +74,9 @@ $border_color: #202020;
             border-color: $border_color;
         }
     }
+    &_write{
+        border: 1px solid #CBCBCB;
+        color: $black;
+        background-color: $write;
+    }
 }

@@ -19,3 +19,11 @@ export function debounce<A = unknown, R = void>(
 
 	return [debouncedFunc, teardown];
 }
+
+export const newArray = (length: number) => {
+	let arr = [];
+	for (let i = 0; i < length; i++) {
+		arr.push(i);
+	}
+	return arr;
+};

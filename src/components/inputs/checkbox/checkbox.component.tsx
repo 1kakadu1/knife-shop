@@ -12,7 +12,7 @@ export const Checkbox = ({
 }: ICheckboxProps) => {
 	const onChangeInput = () => {
 		console.log(!checked);
-		onChange && onChange(!checked, name);
+		onChange && onChange(!checked, id, value);
 	};
 
 	return (
@@ -21,12 +21,12 @@ export const Checkbox = ({
 				className="custom-checkbox"
 				type="checkbox"
 				id={id}
-				name="color-1"
+				name={name}
 				onChange={() => void 0}
 				value={value || name}
 				checked={checked}
 			/>
-			{label && <label htmlFor="color-1">{label}</label>}
+			{label && <label htmlFor={name}>{label}</label>}
 		</div>
 	);
 };

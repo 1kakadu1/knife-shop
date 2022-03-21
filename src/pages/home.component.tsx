@@ -22,6 +22,7 @@ import {
 	swiperDefaultConfig,
 } from '../components/section/slider-product/slider-product.component';
 import { TextInfo } from '../components/section/text-info/text-info.component';
+import { RoutsPath } from '../routes/routes';
 import { toProductsSelector } from '../store/reducer/products/products.selector';
 
 export const HomePage = () => {
@@ -46,7 +47,7 @@ export const HomePage = () => {
 					title="Хиты продаж"
 					link={{
 						name: 'Перейти в каталог',
-						href: '#',
+						href: RoutsPath.products + '/1',
 					}}
 					autoplay
 				/>
@@ -89,7 +90,7 @@ export const HomePage = () => {
 					title="Топ продаж"
 					link={{
 						name: 'Перейти в каталог',
-						href: '#',
+						href: RoutsPath.products + '/1',
 					}}
 				/>
 			</Container>
@@ -110,7 +111,7 @@ export const HomePage = () => {
 					title="Фонари"
 					link={{
 						name: 'Перейти в каталог',
-						href: '#',
+						href: RoutsPath.products + '/1',
 					}}
 					autoplay
 				/>

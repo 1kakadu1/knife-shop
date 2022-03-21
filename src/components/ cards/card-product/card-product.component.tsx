@@ -64,7 +64,9 @@ export const CardProduct = ({
 					<div className="card-product__row">
 						<div className="card-product__row-item item_bold">{data.size}</div>
 						<div className="card-product__row-item item_bold">
-							{data.category.join(', ')}
+							{data.material[0] || ''}
+							{data.material.length >= 2 && ','}
+							{data.material[1] || ''}
 						</div>
 					</div>
 					<div className="card-product__row">
@@ -80,7 +82,7 @@ export const CardProduct = ({
 							/>
 						</div>
 						<div className="card-product__row-item">
-							{data.countComments}
+							<span>{data.countComments}</span>
 							отзывов
 						</div>
 					</div>

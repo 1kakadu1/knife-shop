@@ -8,15 +8,19 @@ export const SlideDownCustom = ({
 	children,
 	title,
 	classNameTitle = '',
+	className = '',
+	defaultClose = true,
 }: {
 	children: JSX.Element;
 	title: string;
 	classNameTitle?: string;
+	className?: string;
+	defaultClose?: boolean;
 }) => {
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(defaultClose);
 
 	return (
-		<div className={'slide-dropdown'}>
+		<div className={'slide-dropdown ' + className}>
 			<div
 				className={'slide-dropdown__button ' + classNameTitle}
 				onClick={() => setOpen(!open)}

@@ -22,4 +22,21 @@
             width: calc(25% - var(--gap));
         }
     }
+
+    & .section-row__item-3{
+        align-items: stretch;
+        margin: var(--gap) 0 0 var(--gap);
+        width: calc(100% - var(--gap));
+        @media  (min-width: 576px) {
+            width: calc(50% - var(--gap));
+        }
+
+        @media  (min-width: 992px) {
+            width: calc(33.33% - var(--gap));
+        }
+
+        @media  (min-width: 1200px) {
+            width: calc(33.33% - var(--gap));
+        }
+    }
 }
