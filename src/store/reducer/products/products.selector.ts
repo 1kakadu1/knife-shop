@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { createFeatureSelector } from '../../../utils/store.utils';
+import { IProductData } from '../product/product.model';
 import { PRODUCTS_KEY } from './products.const';
-import { FiltersKey, IProductData, IProductsState } from './products.model';
+import { FiltersKey, IProductsState } from './products.model';
 
 export const productsSelector =
 	createFeatureSelector<IProductsState>(PRODUCTS_KEY);

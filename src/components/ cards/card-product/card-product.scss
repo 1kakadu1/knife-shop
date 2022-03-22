@@ -1,6 +1,7 @@
 @import "../../../styles/vars.scss";
 
 .card-product{
+    position: relative;
     &__preview-container{
         padding: 20px 20px 10px 20px;
         width: 233px;

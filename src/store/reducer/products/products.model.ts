@@ -5,6 +5,7 @@ export interface IProductsState {
 	error: string;
 	products: IProductData[];
 	filter: IProductsFilter;
+	product?: IProductData;
 }
 
 export interface IProductData {

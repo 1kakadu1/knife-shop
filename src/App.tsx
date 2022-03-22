@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HomePage } from './pages/home.component';
 import {
 	BrowserRouter as Router,
@@ -20,6 +20,7 @@ import { FavoriteModal } from './components/favorite/favorite.component';
 import { RoutsPath } from './routes/routes';
 import { NotFoundPage } from './pages/not-found/not-found.component';
 import { ProductsPage } from './pages/products/products.componet';
+import { ProductPage } from './pages/product/product.component';
 
 function App() {
 	const [notification, setNotification] = useState({
@@ -42,6 +43,10 @@ function App() {
 							<Route
 								path={RoutsPath.products}
 								element={<Navigate replace to={RoutsPath.products + '/1'} />}
+							/>
+							<Route
+								path={RoutsPath.product + '/:slug'}
+								element={<ProductPage />}
 							/>
 							<Route path={'*'} element={<NotFoundPage />} />
 						</Routes>

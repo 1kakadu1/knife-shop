@@ -1,13 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IProductData } from '../product/product.model';
 
 import { PRODUCTS_KEY } from './products.const';
 import { productsStateMock } from './products.mock';
-import {
-	FiltersKey,
-	IProductData,
-	IProductsFilter,
-	IProductsState,
-} from './products.model';
+import { FiltersKey, IProductsFilter, IProductsState } from './products.model';
 
 const setProducts = (
 	state: IProductsState,

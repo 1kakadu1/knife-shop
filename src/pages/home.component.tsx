@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { CardPost } from '../components/ cards/card-post/card-post.component';
@@ -27,7 +27,9 @@ import { toProductsSelector } from '../store/reducer/products/products.selector'
 
 export const HomePage = () => {
 	const sliderProducts = useSelector(toProductsSelector.productsLimit(0, 6));
-
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<div>
 			<Helmet>

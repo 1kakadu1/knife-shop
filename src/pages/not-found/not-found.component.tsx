@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Footer } from '../../components/footer/footer.component';
@@ -7,6 +7,10 @@ import { RoutsPath } from '../../routes/routes';
 import './not-found.scss';
 
 export const NotFoundPage = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<div>
 			<Helmet>

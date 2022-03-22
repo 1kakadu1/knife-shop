@@ -1,34 +1,30 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toCartAction } from '../../store/reducer/cart/cart.reducer';
-import { toCartSelector } from '../../store/reducer/cart/cart.selector';
 import { ButtonDefault } from '../buttons/default/default.component';
 import { ICartMiniProps } from './cart.model';
 import { CSSTransition } from 'react-transition-group';
 import './cart.scss';
 import { CartItem } from '../ cards/cart-item/cart-item.component';
-import { ICartItem } from '../../store/reducer/cart/cart.model';
+import { useCart } from '../../hook/useCart';
 
 const CartMiniComponent = ({
 	className = '',
 	portal,
 	portalID = 'portal-cart',
 }: ICartMiniProps) => {
-	const dispatch = useDispatch();
-	const totalPrice = useSelector(toCartSelector.getTotalPrice());
-	const open = useSelector(toCartSelector.isOpen);
-	const products = useSelector(toCartSelector.cart);
-	const onAdd = (product: ICartItem, size: string) => {
-		dispatch(toCartAction.add({ prod: product, size }));
-	};
-	const onSub = (product: ICartItem, size: string) => {
-		dispatch(toCartAction.sub({ prod: product, size }));
-	};
+	const {
+		totalPrice,
+		cart: products,
+		onAddItem,
+		onSubItem,
+		onToggleCart,
+		isOpen: open,
+	} = useCart();
 	const goToCart = () => {};
 	const handleClose = () => {
-		dispatch(toCartAction.toggleCart(false));
+		onToggleCart(false);
 	};
+
 	return (
 		<CSSTransition in={open} timeout={300} classNames="cart-mini" unmountOnExit>
 			<div className={'cart-mini' + className}>
@@ -47,7 +43,7 @@ const CartMiniComponent = ({
 						<>
 							{products.map((item) => (
 								<div className="cart-mini__product" key={item.id}>
-									<CartItem item={item} onAdd={onAdd} onSub={onSub} />
+									<CartItem item={item} onAdd={onAddItem} onSub={onSubItem} />
 								</div>
 							))}
 						</>

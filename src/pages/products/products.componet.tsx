@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { CardProduct } from '../../components/ cards/card-product/card-product.component';
 import { AsideProduct } from '../../components/aside/aside-product/aside-product.component';
 import { Breadcrumbs } from '../../components/breadcrumbs/breadcrumbs.component';
@@ -18,10 +18,12 @@ import {
 	IProductsFilter,
 	TypeOrder,
 } from '../../store/reducer/products/products.model';
-import { toProductsAction } from '../../store/reducer/products/products.reducer';
 import { Pagination } from '../../components/pagination/pagination.component';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { RoutsPath } from '../../routes/routes';
+import { useProduct } from '../../hook/useProduct';
+import { useFavorite } from '../../hook/useFavorite';
+import { useCart } from '../../hook/useCart';
 
 export const ProductsPage = () => {
 	const { page = 1 } = useParams();
@@ -31,15 +33,14 @@ export const ProductsPage = () => {
 	const products = useSelector(
 		toProductsSelector.productsFilter((Number(page) - 1) * 6)
 	);
-	const total = useSelector(toProductsSelector.total);
-	const dispatch = useDispatch();
-	const filters = useSelector(toProductsSelector.filter);
-	const onChangeFilter = (value: IProductsFilter) =>
-		dispatch(toProductsAction.productsFilter(value));
+	const { onChangeRating, total, filters, onChangeFilter } = useProduct();
+	const { onAddItem } = useCart();
+	const { favorites, onToggleFavorite } = useFavorite();
+
 	const { updateUrl } = useFilterUrl<IProductsFilter>(filters, {
 		setFilter: onChangeFilter,
 		offUpdate: true,
-		unMountFilter: () => dispatch(toProductsAction.productsFilter({})),
+		unMountFilter: () => onChangeFilter({}),
 	});
 
 	const onSort = (value: TypeOrder) => {
@@ -50,6 +51,10 @@ export const ProductsPage = () => {
 	const onChangePagination = (page: number) => {
 		navigate(RoutsPath.products + '/' + page + search);
 	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [page]);
 
 	return (
 		<div>
@@ -84,8 +89,10 @@ export const ProductsPage = () => {
 									<div key={item.id} className="section-row__item-3">
 										<CardProduct
 											data={item}
-											onAdd={() => void 0}
-											onChangeRating={() => void 0}
+											onAdd={onAddItem}
+											onChangeRating={onChangeRating}
+											onChangeFavorite={onToggleFavorite}
+											isFavorite={!!favorites.find((x) => x.id === item.id)}
 										/>
 									</div>
 								))}

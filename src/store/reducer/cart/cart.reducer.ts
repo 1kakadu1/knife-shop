@@ -2,6 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 import { CART_KEY } from './cart.const';
 import { ICart, ICartComments, ICartItem } from './cart.model';
 
+const setCart = (
+	state: ICart,
+	{ payload }: { payload: { prod: ICartItem[] } }
+) => {
+	console.log('aaaa', payload.prod);
+	state.products = payload.prod;
+};
+
 const add = (
 	state: ICart,
 	{ payload }: { payload: { prod: ICartItem; size: string } }
@@ -83,6 +91,7 @@ export const cartSlice = createSlice({
 		remove,
 		changeComments,
 		toggleCart,
+		setCart,
 	},
 });
 
