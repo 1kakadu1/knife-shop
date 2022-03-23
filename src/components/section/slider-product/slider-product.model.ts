@@ -11,4 +11,5 @@ export interface ISliderProductProps {
 	};
 	title?: string;
 	autoplay?: boolean;
+	offAddCart?: boolean;
 }

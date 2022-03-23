@@ -38,6 +38,7 @@ export const SliderProduct = ({
 	link,
 	slides,
 	autoplay,
+	offAddCart = false,
 	swiperProps = { ...swiperDefaultConfig },
 }: ISliderProductProps) => {
 	const { onChangeRating } = useProduct();
@@ -67,7 +68,7 @@ export const SliderProduct = ({
 		<div className={'slider-products ' + className}>
 			<div
 				className={`slider-products__header ${
-					title && link ? '' : 'padding_null'
+					title || link ? '' : 'padding_null'
 				}`}
 			>
 				{title && <h1 className="h1-title">{title}</h1>}
@@ -96,7 +97,7 @@ export const SliderProduct = ({
 					<SwiperSlide key={'SwiperSlide-' + item.id}>
 						<CardProduct
 							data={{ ...item }}
-							onAdd={onAddItem}
+							onAdd={offAddCart ? undefined : onAddItem}
 							onChangeRating={onChangeRating}
 							onChangeFavorite={onToggleFavorite}
 							isFavorite={!!favorites.find((x) => x.id === item.id)}

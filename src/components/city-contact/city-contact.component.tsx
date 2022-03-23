@@ -29,11 +29,10 @@ export const CityContact = ({ city, phones }: ICityContactProps) => {
 	const { updateNotification } = useContext(NotificationContext);
 	const [open, setOpen] = useState<boolean>(false);
 	const [callback, setCallback] = useState<boolean>(false);
-	const [form, setForm] =
-		useState<{
-			phone: { value: string; valid: boolean; touch: boolean };
-			name: { value: string; valid: boolean; touch: boolean };
-		}>(initForm);
+	const [form, setForm] = useState<{
+		phone: { value: string; valid: boolean; touch: boolean };
+		name: { value: string; valid: boolean; touch: boolean };
+	}>(initForm);
 
 	const onChangeValue = (value: string, key: 'phone' | 'name') => {
 		let valid = true;
