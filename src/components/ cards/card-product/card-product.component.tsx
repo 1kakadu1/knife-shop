@@ -12,6 +12,7 @@ import starHalf from '../../../assets/images/star-half.png';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toCartSelector } from '../../../store/reducer/cart/cart.selector';
+import { RoutsPath } from '../../../routes/routes';
 
 export const CardProduct = ({
 	data,
@@ -41,7 +42,10 @@ export const CardProduct = ({
 	return (
 		<CardWrapper paddingNull>
 			<div className={'card-product ' + className}>
-				<Link className="card-product__preview-container" to={data.href}>
+				<Link
+					className="card-product__preview-container"
+					to={RoutsPath.product + '/' + data.href}
+				>
 					<img src={data.preview} alt="" className="card-product__preview" />
 					<div
 						className={`card-product__counter${
@@ -55,7 +59,7 @@ export const CardProduct = ({
 				</Link>
 
 				<div className="card-product__header card-product_padding">
-					<Link to={data.href}>
+					<Link to={RoutsPath.product + '/' + data.href}>
 						<h3 className="card-product__name card-product__title">
 							{data.name}
 						</h3>

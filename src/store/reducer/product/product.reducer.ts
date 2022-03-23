@@ -6,7 +6,7 @@ import { IProductData, IProductState } from './product.model';
 
 const setProduct = (
 	state: IProductState,
-	{ payload }: { payload: IProductData }
+	{ payload }: { payload: IProductData | undefined }
 ) => {
 	state.product = payload;
 };

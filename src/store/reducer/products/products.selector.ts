@@ -22,7 +22,10 @@ const productsLimit = (start: number, end: number) =>
 	createSelector(productsSelector, ({ products }) =>
 		products.slice(start, end)
 	);
-
+const getProductBySlug = (slug: string) =>
+	createSelector(productsSelector, ({ products }) =>
+		products.find((x) => x.href === slug)
+	);
 //TODO: FAKE FILTER
 const productsFilter = (offset: number, limit = 6) =>
 	createSelector(productsSelector, ({ products, filter }) => {
@@ -91,4 +94,5 @@ export const toProductsSelector = {
 	productsLimit,
 	productsFilter,
 	total,
+	getProductBySlug,
 };
