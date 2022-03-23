@@ -3,6 +3,7 @@ import { ButtonDefault } from '../../buttons/default/default.component';
 import { IInputDefaultProps } from './input-default.model';
 import './input-default.scss';
 import { useDebounce } from '../../../utils/useDebounce';
+import { useEffect } from 'react';
 
 export const InputDefault = ({
 	value: valueProps,
@@ -20,6 +21,8 @@ export const InputDefault = ({
 	write,
 	min,
 	max,
+	debounce = false,
+	...props
 }: IInputDefaultProps) => {
 	const [value, setValue] = useState('');
 	const [error, setError] = useState(errorProps || '');
@@ -38,7 +41,7 @@ export const InputDefault = ({
 		return '';
 	};
 
-	const debounce = useDebounce(onValidation, 300);
+	const debounceFn = useDebounce(onValidation, 300);
 
 	const onClickBtn = () => {
 		if (onSubmit && validation) {
@@ -56,16 +59,20 @@ export const InputDefault = ({
 		const val = e.target.value;
 
 		if (valueProps !== undefined && onChange) {
-			onChange(val);
+			onChange(e);
 		} else {
 			setValue(val);
 		}
 
 		if (validationOnChange && validation) {
-			debounce(null);
+			debounce ? debounceFn(null) : onValidation();
 		}
 	};
 	const isError = error !== '' && error !== undefined ? true : false;
+
+	useEffect(() => {
+		if (errorProps !== undefined) setError(errorProps);
+	}, [errorProps]);
 
 	return (
 		<div className={'input-form-control ' + className}>
@@ -92,6 +99,7 @@ export const InputDefault = ({
 					id={id}
 					max={max}
 					min={min}
+					{...props}
 				/>
 				{onSubmit && (
 					<ButtonDefault

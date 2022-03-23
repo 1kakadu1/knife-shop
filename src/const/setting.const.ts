@@ -30,3 +30,5 @@ export const TIME_WORK = 'Пн-Пт 7:00 - 16:00 (МСК)';
 export const EMAIL = 'info@mail.test';
 
 export const CURRENCY = '$';
+
+export const MASK_PHONE = '+1 (999) 999-99-99';

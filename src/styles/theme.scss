@@ -117,6 +117,13 @@ input[type=number] {
     color: rgba(20, 20, 20, 0.58);
   }
 
+  .center{
+      text-align: center;
+      justify-content: center;
+  }
+
+  
+
   .desc{
     font-weight: 500;
     @include adaptive-var("font-size", 18, 12, 1);
@@ -133,12 +140,12 @@ input[type=number] {
     transform: scale(1);
     transition: transform 300ms ease;
     cursor: pointer;
-    @media screen and (min-width: 992px){
-        &:hover{
-            transform: scale(0.9);
-            transition: transform 300ms ease; 
-        }
-    }
+    // @media screen and (min-width: 992px){
+    //     &:hover{
+    //         transform: scale(0.9);
+    //         transition: transform 300ms ease; 
+    //     }
+    // }
     & svg{
         -webkit-user-select: none;
         -moz-user-select: none;
