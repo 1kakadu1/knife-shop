@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { toCategorySelector } from '../../store/reducer/category/category.selector';
 import { createCatalog } from '../../utils/catalog.utils';
 import { Container } from '../container/container.component';
 import { IconArrowLeft } from '../icons/arrow-left.icon.component';
 import { IconArrowSmallRight } from '../icons/arrow-small-right.icon.component';
+import { PortalWrapper } from '../portal-wrapper/portal-wrapper.container';
 import { IMenuCatalogProps, ISubMenuCatalogProps } from './menu-catalog.model';
 import './menu-catalog.scss';
 
@@ -92,11 +92,6 @@ export const MenuCatalog = ({ fixed, portal }: IMenuCatalogProps) => {
 			onBack={() => setOpen('')}
 		/>
 	);
-	const portalRef = useRef<HTMLElement | null>();
-
-	useEffect(() => {
-		portalRef.current = document.getElementById('portal');
-	}, []);
 
 	return (
 		<nav className="menu-catalog">
@@ -124,9 +119,13 @@ export const MenuCatalog = ({ fixed, portal }: IMenuCatalogProps) => {
 					</ul>
 				</div>
 			</Container>
-			{portal && portalRef.current
-				? ReactDOM.createPortal(InnerComponent, portalRef.current)
-				: InnerComponent}
+			{portal ? (
+				<PortalWrapper wrapperId="react-portal-catalog">
+					{InnerComponent}
+				</PortalWrapper>
+			) : (
+				InnerComponent
+			)}
 		</nav>
 	);
 };

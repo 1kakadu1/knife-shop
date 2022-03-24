@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { useWindowSize, WindowBreakpoints } from '../../utils/useWindowSize';
 import { ButtonBurger } from '../buttons/burger/burger.component';
+import { PortalWrapper } from '../portal-wrapper/portal-wrapper.container';
 import { IMenuLink, IMenuTopNavProps, IMenuTopProps } from './menu-top.model';
 import './menu-top.styles.scss';
 
@@ -36,7 +36,6 @@ export const MenuTop = ({
 	portal,
 }: IMenuTopProps) => {
 	const [open, setOpen] = useState<boolean>(false);
-	const portalRef = useRef<HTMLElement | null>();
 	const bodyRef = useRef<HTMLElement | null>();
 
 	const onToggle = (value: boolean) => {
@@ -44,7 +43,6 @@ export const MenuTop = ({
 	};
 
 	useEffect(() => {
-		portalRef.current = document.getElementById('portal');
 		bodyRef.current = document.querySelector('body');
 		return () => {
 			if (bodyRef.current) bodyRef.current.style.overflow = '';
@@ -65,13 +63,10 @@ export const MenuTop = ({
 			<div className="menu-top__burger">
 				<ButtonBurger open={open} onToggle={onToggle} />
 			</div>
-			{portalRef.current && portal ? (
-				ReactDOM.createPortal(
-					<div className="modal">
-						<MenuTopNav open={open} links={links} catalogMenu={catalogMenu} />
-					</div>,
-					portalRef.current
-				)
+			{portal ? (
+				<PortalWrapper wrapperId="react-portal-menu">
+					<MenuTopNav open={open} links={links} catalogMenu={catalogMenu} />
+				</PortalWrapper>
 			) : (
 				<MenuTopNav open={open} links={links} catalogMenu={catalogMenu} />
 			)}
