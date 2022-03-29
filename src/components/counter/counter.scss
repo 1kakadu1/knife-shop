@@ -1,0 +1,35 @@
+@import "../../styles/vars.scss";
+
+.counter{
+    display: flex;
+    align-items: center;
+    &__figure{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+    }
+    &__btn{
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        color: $write;
+        background-color: $black;
+        cursor: pointer;
+        &:hover{
+            @media screen and (min-width: 992px) {
+                background-color: $hover;
+            }
+        }
+        
+    }
+    &__count{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: $black;
+        background: rgba(210, 210, 210, 0.07);
+    }
+}

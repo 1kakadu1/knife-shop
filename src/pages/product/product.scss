@@ -1,0 +1,33 @@
+.product{
+    &__info{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 30px;
+        @media screen and (min-width: 992px) {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+        &-left{
+            width: 100%;
+            order: 2;
+            @media screen and (min-width: 992px) {
+                width: 48%;
+                order: 0;
+            }
+        }
+        &-right{
+            width: 100%;
+            @media screen and (min-width: 992px) {
+                width: 52%;
+            }
+        }
+    }
+    &__preview{
+        height: 577px;
+        width: 100%;
+        object-fit: scale-down;
+        object-position: center;
+    }
+
+}

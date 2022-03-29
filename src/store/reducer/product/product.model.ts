@@ -19,4 +19,10 @@ export interface IProductData {
 	userStars?: number;
 	usersStars: number;
 	size: string;
+	gallery?: IGalleryData[];
+}
+
+export interface IGalleryData {
+	original: string;
+	thumbnail: string;
 }

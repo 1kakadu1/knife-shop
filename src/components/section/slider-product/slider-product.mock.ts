@@ -3,6 +3,45 @@ import productPreview2 from '../../../assets/images/products/product-2.png';
 import { mockCategory } from '../../../store/reducer/category/category.mock';
 import { IProductData } from '../../../store/reducer/product/product.model';
 
+const fakeGallery = [
+	{
+		original: 'https://picsum.photos/id/1018/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1018/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1015/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1015/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1019/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1019/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1018/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1018/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1015/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1015/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1019/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1019/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1018/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1018/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1015/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1015/250/150/',
+	},
+	{
+		original: 'https://picsum.photos/id/1019/1000/600/',
+		thumbnail: 'https://picsum.photos/id/1019/250/150/',
+	},
+];
+
 export const sliderProductsMock: IProductData[] = [
 	{
 		id: 'id-1',
@@ -16,6 +55,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 5,
+		gallery: fakeGallery,
 	},
 	{
 		id: 'id-2',
@@ -29,6 +69,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 3,
+		gallery: fakeGallery,
 	},
 	{
 		id: 'id-3',
@@ -42,6 +83,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 1,
+		gallery: fakeGallery,
 	},
 	{
 		id: 'id-4',
@@ -55,6 +97,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 2,
+		gallery: fakeGallery,
 	},
 	{
 		id: 'id-5',
@@ -68,6 +111,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 2,
+		gallery: fakeGallery,
 	},
 	{
 		id: 'id-6',
@@ -81,6 +125,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 3,
+		gallery: fakeGallery,
 	},
 	{
 		id: 'id-11',

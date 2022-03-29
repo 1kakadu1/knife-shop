@@ -15,7 +15,7 @@
         }  
     }
     &__header{
-        padding-bottom: 60px;
+        @include adaptive-var("padding-bottom", 60, 24, 1);
         display: flex;
         align-items: center;
         justify-content: space-between;

@@ -168,3 +168,17 @@ input[type=number] {
 input, button, span, a, div{
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.badge{
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__bonus{
+        background-color:  rgba(20, 20, 20, 0.3);
+        color: #141414;
+    }
+
+}

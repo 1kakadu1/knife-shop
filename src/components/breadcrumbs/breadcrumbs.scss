@@ -8,13 +8,19 @@
         margin-right: 10px;
         width: 8px;
         height: 12px;
+        transform: scale(0.5);
+        @media screen and (min-width: 992px) {
+            transform: scale(1);
+        }
     }
     &__item{
         display: flex;
         align-items: center;
+        @include adaptive-var("font-size", 16, 10, 1);
     }
     &__link{
         color: $black_light;
+        @include adaptive-var("font-size", 16, 10, 1);
         &:hover{
             color: $hover;
         }

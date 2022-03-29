@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ButtonDefault } from '../../buttons/default/default.component';
 import { CardWrapper } from '../card-wrapper/card-wrapper.component';
 import { ICardProduct } from './card-product.model';
-import { StarsRating } from 'stars-rating-react-hooks';
 import './card-product.scss';
 import { IconCompare } from '../../icons/compare.icon.component';
 import { IconFavorite } from '../../icons/favorite.icon.component';
-import starActive from '../../../assets/images/star-active.png';
-import starEmpty from '../../../assets/images/star-empty.png';
-import starHalf from '../../../assets/images/star-half.png';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toCartSelector } from '../../../store/reducer/cart/cart.selector';
 import { RoutsPath } from '../../../routes/routes';
+import { Rating } from '../../rating/rating.component';
+import { Divider } from '../../divider/divider.component';
+import { Box } from '../../box/box.component';
 
 export const CardProduct = ({
 	data,
@@ -26,18 +25,6 @@ export const CardProduct = ({
 	const productCart = useSelector(
 		toCartSelector.getCartProductByID(data.id, data.size)
 	);
-	const [selecting, setSelecting] = useState<{
-		isSelecting: boolean;
-		selectingValue: number;
-	} | null>(null);
-
-	const config = {
-		totalStars: 5,
-		initialSelectedValue: data.userStars,
-		renderFull: <img alt="star" src={starActive} />,
-		renderEmpty: <img alt="star" src={starEmpty} />,
-		renderHalf: <img alt="star" src={starHalf} />,
-	};
 
 	return (
 		<CardWrapper paddingNull>
@@ -75,14 +62,11 @@ export const CardProduct = ({
 					</div>
 					<div className="card-product__row">
 						<div className="card-product__row-item item_star">
-							<StarsRating
-								onStarsRated={(value: number) => {
-									onChangeRating(data.id, data.size, value);
-								}}
-								onSelecting={(isSelecting: boolean, selectingValue: number) => {
-									setSelecting({ isSelecting, selectingValue });
-								}}
-								config={config}
+							<Rating
+								id={data.id}
+								size={data.size}
+								selected={data.userStars || 0}
+								onChangeRating={onChangeRating}
 							/>
 						</div>
 						<div className="card-product__row-item">
@@ -91,7 +75,10 @@ export const CardProduct = ({
 						</div>
 					</div>
 				</div>
-				<hr className="card-product__hr" />
+				<Box styles={{ padding: '10px 20px' }}>
+					<Divider ptb={0} />
+				</Box>
+
 				<div className="card-product__body card-product_padding">
 					<div className="card-product__price card-product__title">
 						{data.price} $

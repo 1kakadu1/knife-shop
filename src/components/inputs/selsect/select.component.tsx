@@ -14,6 +14,7 @@ export const SelectDefault = ({
 	validation,
 	validationOnChange,
 	options,
+	black = false,
 }: ISelectProps) => {
 	const [error, setError] = useState(errorProps || '');
 
@@ -54,7 +55,11 @@ export const SelectDefault = ({
 				}`}
 			>
 				<select
-					className={'select-form-control__input ' + classNameSelect}
+					className={
+						'select-form-control__input ' +
+						classNameSelect +
+						(black ? ' select-form-control_black' : '')
+					}
 					id={id}
 					value={valueProps || options[0].value}
 					onChange={onChangeInput}

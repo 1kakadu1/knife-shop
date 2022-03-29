@@ -8,7 +8,7 @@ export const CardWrapper = ({
 	stretch,
 }: {
 	className?: string;
-	children: JSX.Element;
+	children: JSX.Element | JSX.Element[];
 	paddingNull?: boolean;
 	stretch?: boolean;
 }) => {

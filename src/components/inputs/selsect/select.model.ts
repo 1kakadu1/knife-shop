@@ -11,6 +11,7 @@ export interface ISelectProps {
 	validation?: (value: any) => string;
 	validationOnChange?: boolean;
 	options: ISelectOptions[];
+	black?: boolean;
 }
 
 export interface ISelectOptions {

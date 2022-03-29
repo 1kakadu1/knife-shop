@@ -39,9 +39,16 @@ $border_color: rgba(4, 4, 4, 0.3);
         background-repeat: no-repeat;
         background-position-x: 95%;
         background-position-y: 57%;
+        cursor: pointer;
         &:focus, &:focus-visible{
             outline: none;
         }
+    }
+    &_black{
+        background-position-x: 100%;
+        background-position-y: 0;
+        background-size: contain;
+        background-image: url(../../../assets/svg/arrow-select-black.svg);
     }
     &__arrow{
         position: absolute;
