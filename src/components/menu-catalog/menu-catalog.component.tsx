@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { toCategorySelector } from '../../store/reducer/category/category.selector';
 import { createCatalog } from '../../utils/catalog.utils';
 import { Container } from '../container/container.component';
@@ -33,26 +34,35 @@ const SubMenuCatalog = ({
 								className={`sub-menu-catalog__row ${
 									active === item.href ? 'sub-menu-catalog__row_show' : ''
 								}`}
-								key={item.href}
+								key={item.id}
 							>
 								{item.catList.map((cat) => (
-									<div className="sub-menu-catalog__column" key={cat.href}>
-										<a href={cat.href} className="sub-menu-catalog__cat">
+									<div className="sub-menu-catalog__column" key={cat.id}>
+										<Link
+											to={'../' + cat.href}
+											className="sub-menu-catalog__cat"
+										>
 											{cat.name}
-										</a>
+										</Link>
 										<ul className="sub-menu-catalog__list">
 											{cat.subMenu &&
-												cat.subMenu.map(({ name, href }) => (
-													<li className="sub-menu-catalog__item" key={href}>
-														<a href={href} className="sub-menu-catalog__link">
+												cat.subMenu.map(({ name, href, id }) => (
+													<li className="sub-menu-catalog__item" key={id}>
+														<Link
+															to={'../' + cat.href}
+															className="sub-menu-catalog__link"
+														>
 															{name}
-														</a>
+														</Link>
 													</li>
 												))}
 										</ul>
-										<a href={cat.href} className="sub-menu-catalog__more">
+										<Link
+											to={'../' + cat.href}
+											className="sub-menu-catalog__more"
+										>
 											Смотреть все
-										</a>
+										</Link>
 									</div>
 								))}
 							</div>

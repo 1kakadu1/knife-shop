@@ -5,40 +5,34 @@ import { IProductData } from '../../../store/reducer/product/product.model';
 
 const fakeGallery = [
 	{
-		original: 'https://picsum.photos/id/1018/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1018/250/150/',
+		original:
+			'https://www.seriouseats.com/thmb/TcGD1n1LAplWl790peXJPCQA6s0=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__09__20150921-misen-knife-review-1-a4f5f8aa45db4e509f82494679cb61fa.jpg',
+		thumbnail:
+			'https://www.seriouseats.com/thmb/TcGD1n1LAplWl790peXJPCQA6s0=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__09__20150921-misen-knife-review-1-a4f5f8aa45db4e509f82494679cb61fa.jpg',
 	},
 	{
-		original: 'https://picsum.photos/id/1015/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1015/250/150/',
+		original:
+			'https://www.tescomaonline.com/media/images/catalog/item/zoom/c15_884529__2.jpg',
+		thumbnail:
+			'https://www.tescomaonline.com/media/images/catalog/item/zoom/c15_884529__2.jpg',
 	},
 	{
-		original: 'https://picsum.photos/id/1019/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1019/250/150/',
+		original:
+			'https://static.onecms.io/wp-content/uploads/sites/9/2021/11/08/Henckels-Classic-Chef-Knife-FT-BLOG1121.jpg',
+		thumbnail:
+			'https://static.onecms.io/wp-content/uploads/sites/9/2021/11/08/Henckels-Classic-Chef-Knife-FT-BLOG1121.jpg',
 	},
 	{
-		original: 'https://picsum.photos/id/1018/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1018/250/150/',
+		original:
+			'https://www.cnet.com/a/img/resize/7429cecd3a94633f272e43d3cbed2c624a5908d5/2021/08/05/d4dfbaf8-34ed-47ef-ab62-63294b04927a/aura-knife.jpg?auto=webp&fit=crop&height=528&width=940',
+		thumbnail:
+			'https://www.cnet.com/a/img/resize/7429cecd3a94633f272e43d3cbed2c624a5908d5/2021/08/05/d4dfbaf8-34ed-47ef-ab62-63294b04927a/aura-knife.jpg?auto=webp&fit=crop&height=528&width=940',
 	},
 	{
-		original: 'https://picsum.photos/id/1015/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1015/250/150/',
-	},
-	{
-		original: 'https://picsum.photos/id/1019/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1019/250/150/',
-	},
-	{
-		original: 'https://picsum.photos/id/1018/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1018/250/150/',
-	},
-	{
-		original: 'https://picsum.photos/id/1015/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1015/250/150/',
-	},
-	{
-		original: 'https://picsum.photos/id/1019/1000/600/',
-		thumbnail: 'https://picsum.photos/id/1019/250/150/',
+		original:
+			'https://www.oldfieldforge.co.uk/app/uploads/2020/03/Damascus-Knife-2-scaled.jpg',
+		thumbnail:
+			'https://www.oldfieldforge.co.uk/app/uploads/2020/03/Damascus-Knife-2-scaled.jpg',
 	},
 ];
 
