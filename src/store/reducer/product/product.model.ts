@@ -20,6 +20,28 @@ export interface IProductData {
 	usersStars: number;
 	size: string;
 	gallery?: IGalleryData[];
+	reviews?: IProductReview[];
+	сharacteristic?: IProductCharacteristic[];
+}
+
+export interface IProductCharacteristic {
+	label: string;
+	items: {
+		label: string;
+		value: string | number;
+	}[];
+}
+
+export interface IProductReview {
+	//TODO: заменить на interface пользователя
+	user: {
+		preview?: string;
+		name: string;
+		usName: string;
+	};
+	comment: string;
+	userStars?: number;
+	date: string;
 }
 
 export interface IGalleryData {

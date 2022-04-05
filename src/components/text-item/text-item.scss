@@ -1,0 +1,32 @@
+.text-item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &__label{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        min-width: 200px;
+    }
+    &__value{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        width: 100%;
+        margin-left: 10px;
+    }
+}
+
+.text-items{
+    &__label{
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 30px;
+    }
+    &-list{
+        &__item{
+            padding-bottom: 20px;
+        }
+    }
+}

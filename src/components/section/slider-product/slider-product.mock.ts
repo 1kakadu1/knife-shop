@@ -1,7 +1,10 @@
 import productPreview1 from '../../../assets/images/products/product-1.png';
 import productPreview2 from '../../../assets/images/products/product-2.png';
 import { mockCategory } from '../../../store/reducer/category/category.mock';
-import { IProductData } from '../../../store/reducer/product/product.model';
+import {
+	IProductCharacteristic,
+	IProductData,
+} from '../../../store/reducer/product/product.model';
 
 const fakeGallery = [
 	{
@@ -36,6 +39,52 @@ const fakeGallery = [
 	},
 ];
 
+const lorem = `Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.`;
+const сharacteristic: IProductCharacteristic[] = [
+	{
+		label: 'Технические характеристики',
+		items: [
+			{
+				label: 'Общая длина, мм:',
+				value: 227,
+			},
+			{
+				label: 'Длина клинка, мм:',
+				value: 112,
+			},
+			{
+				label: 'Ширина клинка, мм:',
+				value: 24,
+			},
+			{
+				label: 'Толщина обуха, мм:',
+				value: 2.9,
+			},
+		],
+	},
+	{
+		label: 'Используемые материалы',
+		items: [
+			{
+				label: 'Сталь:',
+				value: 227,
+			},
+			{
+				label: 'Рукоять:',
+				value: 112,
+			},
+		],
+	},
+	{
+		label: 'Производство',
+		items: [
+			{
+				label: 'Производство:',
+				value: 'АиР',
+			},
+		],
+	},
+];
 export const sliderProductsMock: IProductData[] = [
 	{
 		id: 'id-1',
@@ -43,13 +92,14 @@ export const sliderProductsMock: IProductData[] = [
 		name: 'Нож ножа  Лиса для ножа',
 		price: 25,
 		href: 'flashlight-23',
-		desc: '',
+		desc: lorem,
 		category: [mockCategory[3]],
 		material: ['Орех', 'Алюминий'],
 		countComments: 12,
 		size: '95х18',
 		usersStars: 5,
 		gallery: fakeGallery,
+		сharacteristic: сharacteristic,
 	},
 	{
 		id: 'id-2',
@@ -64,6 +114,7 @@ export const sliderProductsMock: IProductData[] = [
 		size: '95х18',
 		usersStars: 3,
 		gallery: fakeGallery,
+		сharacteristic: сharacteristic,
 	},
 	{
 		id: 'id-3',
@@ -71,13 +122,14 @@ export const sliderProductsMock: IProductData[] = [
 		name: 'Проект №1',
 		price: 180,
 		href: 'flashlight-proj-1',
-		desc: '',
+		desc: lorem,
 		category: [mockCategory[2]],
 		material: ['Орех', 'Алюминий'],
 		countComments: 12,
 		size: '95х18',
 		usersStars: 1,
 		gallery: fakeGallery,
+		сharacteristic: сharacteristic,
 	},
 	{
 		id: 'id-4',
@@ -99,7 +151,7 @@ export const sliderProductsMock: IProductData[] = [
 		name: 'Треска нож',
 		price: 999,
 		href: 'knife-tesak',
-		desc: '',
+		desc: lorem,
 		category: [mockCategory[3]],
 		material: ['Орех', 'Алюминий'],
 		countComments: 12,
@@ -133,6 +185,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 1,
+		сharacteristic: сharacteristic,
 	},
 	{
 		id: 'id-22',
@@ -140,7 +193,7 @@ export const sliderProductsMock: IProductData[] = [
 		name: 'flashlight-lucky',
 		price: 50,
 		href: '#',
-		desc: '',
+		desc: lorem,
 		category: [mockCategory[4]],
 		material: ['Орех', 'Алюминий'],
 		countComments: 12,
@@ -172,6 +225,7 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 5,
+		сharacteristic: сharacteristic,
 	},
 	{
 		id: 'id-55',
@@ -179,7 +233,7 @@ export const sliderProductsMock: IProductData[] = [
 		name: 'Нож Лиса (дерево)',
 		price: 1200,
 		href: 'product-knife-fox-55',
-		desc: '',
+		desc: lorem,
 		category: [mockCategory[2]],
 		material: ['Орех', 'Алюминий'],
 		countComments: 12,
@@ -198,5 +252,6 @@ export const sliderProductsMock: IProductData[] = [
 		countComments: 12,
 		size: '95х18',
 		usersStars: 4,
+		сharacteristic: сharacteristic,
 	},
 ];

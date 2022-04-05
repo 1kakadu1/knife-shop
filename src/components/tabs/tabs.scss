@@ -1,0 +1,46 @@
+@import "../../styles/vars.scss";
+
+.tabs{
+    &-list{
+        &__item{
+            z-index: 1;
+            background-color: $write;
+        }
+    }
+
+    &-navigation{
+        border-bottom: 1px solid $divider;
+        margin-bottom: 44px;
+        &__item{
+            background-color: transparent;
+            padding: 20px 0px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            margin-right: 30px;
+            position: relative;
+            display: inline;
+            cursor: pointer;
+            color: $gray;
+            transition: color 300ms ease;
+            &::before{
+                content: "";
+                position: absolute;
+                bottom: -1px;
+                left: 0px;
+                width: 0px;
+                height: 2px;
+                background-color: $hover;
+                display: inline;
+                transition: width 300ms ease;
+            }
+            &.active{
+                color: $black;
+                &::before{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

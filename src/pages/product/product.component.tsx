@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CardProductInfo } from '../../components/ cards/card-product-info/card-product-info.component';
 import { CardWrapper } from '../../components/ cards/card-wrapper/card-wrapper.component';
 import { Box } from '../../components/box/box.component';
 import { Breadcrumbs } from '../../components/breadcrumbs/breadcrumbs.component';
+import { ButtonDefault } from '../../components/buttons/default/default.component';
 import { Container } from '../../components/container/container.component';
 import { Footer } from '../../components/footer/footer.component';
 import { GallerySlider } from '../../components/gallery-slider/gallery-slider.component';
 import { Header } from '../../components/header/header.component';
 import { SliderProduct } from '../../components/section/slider-product/slider-product.component';
+import { TabsContainer } from '../../components/tabs/tabs.component';
+import { TextItems } from '../../components/text-item/text-item.component';
 import { useCart } from '../../hook/useCart';
 import { useFavorite } from '../../hook/useFavorite';
 import { RoutsPath } from '../../routes/routes';
@@ -101,6 +104,48 @@ export const ProductPage = () => {
 								)}
 							/>
 						</div>
+					</div>
+					<div className="product__tabs">
+						<CardWrapper>
+							<TabsContainer
+								labels={[
+									{ label: 'Описание', id: 0 },
+									{ label: 'Характеристика', id: 1 },
+									{ label: 'Отзывы', id: 2 },
+								]}
+								items={[
+									<div className="product__base-info">
+										{product.desc === ''
+											? 'Описание отсутствует'
+											: product.desc}
+									</div>,
+									<div className="product__base-info product-row">
+										{product.сharacteristic
+											? product.сharacteristic.map((item) => (
+													<div className="product-row__item" key={item.label}>
+														<TextItems title={item.label} items={item.items} />
+													</div>
+											  ))
+											: 'Ого! Кто-то забыл добавить характеристики'}
+									</div>,
+									<div className="product__base-info">
+										{product.reviews && product.reviews.length > 0 ? (
+											'Отзыв'
+										) : (
+											<div className="product-reviews-empty">
+												<span>
+													У данного товара нет отзывов. Станьте первым, кто
+													оставил отзыв об этом товаре!
+												</span>
+												<ButtonDefault className="product-reviews__add">
+													<span>Написать отзыв</span>
+												</ButtonDefault>
+											</div>
+										)}
+									</div>,
+								]}
+							/>
+						</CardWrapper>
 					</div>
 				</Container>
 			) : (
