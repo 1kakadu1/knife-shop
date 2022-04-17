@@ -12,6 +12,7 @@ export const Rating = ({
 	onChangeRating,
 	width,
 	className = '',
+	offChange = false,
 }: {
 	id: string;
 	size: string;
@@ -19,6 +20,7 @@ export const Rating = ({
 	onChangeRating: (id: string, size: string, stars: number) => void;
 	width?: number;
 	className?: string;
+	offChange?: boolean;
 }) => {
 	const [selecting, setSelecting] = useState<{
 		isSelecting: boolean;
@@ -33,13 +35,19 @@ export const Rating = ({
 		renderHalf: <img alt="star" src={starHalf} style={{ width: width }} />,
 	};
 	return (
-		<div className={'stars-rating ' + className}>
+		<div
+			className={
+				'stars-rating ' +
+				className +
+				(offChange ? ' stars-rating_off_event' : '')
+			}
+		>
 			<StarsRating
 				onStarsRated={(value: number) => {
-					onChangeRating(id, size, value);
+					!offChange && onChangeRating(id, size, value);
 				}}
 				onSelecting={(isSelecting: boolean, selectingValue: number) => {
-					setSelecting({ isSelecting, selectingValue });
+					!offChange && setSelecting({ isSelecting, selectingValue });
 				}}
 				config={config}
 			/>

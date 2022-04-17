@@ -33,18 +33,22 @@ export interface IProductCharacteristic {
 }
 
 export interface IProductReview {
-	//TODO: заменить на interface пользователя
-	user: {
-		preview?: string;
-		name: string;
-		usName: string;
-	};
+	user: IUserData;
 	comment: string;
 	userStars?: number;
 	date: string;
+	id: string;
 }
 
 export interface IGalleryData {
 	original: string;
 	thumbnail: string;
+}
+
+//TODO: заменить на interface пользователя
+export interface IUserData {
+	preview?: string;
+	name: string;
+	usName: string;
+	id: string;
 }

@@ -1,4 +1,4 @@
-import { ICategoryItemData } from './category.model';
+import { ICategoryItemData } from '../store/reducer/category/category.model';
 
 export const mockCategory: ICategoryItemData[] = [
 	// #1 catalog

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ITabs, ITabsContainer, ITabsNavigation } from './tabs.model';
 import { useDidUpdateEffect } from '../../hook/useDidUpdateEffect';
@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import './tabs.scss';
+import TabsContext from './tabs.context';
 
 export const TabsNavigation = ({
 	className = '',
@@ -22,8 +23,9 @@ export const TabsNavigation = ({
 	return (
 		<div className={'tabs-container ' + className}>
 			<div className="tabs-navigation">
-				{labels.map((item) => (
+				{labels.map((item, index) => (
 					<button
+						key={'tab-' + index}
 						className={`tabs-navigation__item ${
 							tab === item.id ? 'active' : ''
 						}`}
@@ -38,20 +40,36 @@ export const TabsNavigation = ({
 	);
 };
 
-export const Tabs = ({ className = '', tab, items, swiperProps }: ITabs) => {
+export const Tabs = ({
+	className = '',
+	tab,
+	items,
+	swiperProps,
+	update,
+}: ITabs) => {
 	const ref = useRef<any | null>(null);
+	const { setTabsRef } = useContext(TabsContext);
 	useDidUpdateEffect(() => {
 		ref && ref.current && ref.current.slideTo(tab);
+		if (update) {
+			setTimeout(() => {
+				ref && ref.current && ref.current.update();
+			}, 300);
+		}
 	}, [tab]);
 
 	return (
 		<div className={'tabs-list ' + className}>
 			<Swiper
 				className="tabs-swiper"
-				onSwiper={(swiper) => (ref.current = swiper)}
+				onSwiper={(swiper) => {
+					setTabsRef && setTabsRef(swiper);
+					ref.current = swiper;
+				}}
 				effect="fade"
 				modules={[EffectFade]}
 				autoHeight={true}
+				updateOnWindowResize={true}
 				{...swiperProps}
 			>
 				{items.map((item, index) => (
@@ -69,13 +87,21 @@ export const TabsContainer = ({
 	items,
 	className = '',
 	init,
+	tab,
+	onChangeTab,
+	update,
 }: ITabsContainer) => {
-	const [tab, setTab] = useState(init || 0);
+	const [tabState, setTabState] = useState(init || 0);
+	const tabActive = tab !== undefined ? tab : tabState;
 
 	return (
 		<div className={'tabs-container ' + className}>
-			<TabsNavigation tab={tab} onChange={setTab} labels={labels} />
-			<Tabs tab={tab} items={items} />
+			<TabsNavigation
+				tab={tabActive}
+				onChange={tab !== undefined && onChangeTab ? onChangeTab : setTabState}
+				labels={labels}
+			/>
+			<Tabs tab={tabActive} items={items} update={update} />
 		</div>
 	);
 };

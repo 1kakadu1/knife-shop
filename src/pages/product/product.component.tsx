@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -6,15 +6,17 @@ import { CardProductInfo } from '../../components/ cards/card-product-info/card-
 import { CardWrapper } from '../../components/ cards/card-wrapper/card-wrapper.component';
 import { Box } from '../../components/box/box.component';
 import { Breadcrumbs } from '../../components/breadcrumbs/breadcrumbs.component';
-import { ButtonDefault } from '../../components/buttons/default/default.component';
 import { Container } from '../../components/container/container.component';
 import { Footer } from '../../components/footer/footer.component';
 import { GallerySlider } from '../../components/gallery-slider/gallery-slider.component';
 import { Header } from '../../components/header/header.component';
+import { Reviews } from '../../components/reviews/reviews.component';
 import { SliderProduct } from '../../components/section/slider-product/slider-product.component';
 import { TabsContainer } from '../../components/tabs/tabs.component';
+import TabsContext from '../../components/tabs/tabs.context';
 import { TextItems } from '../../components/text-item/text-item.component';
 import { useCart } from '../../hook/useCart';
+import { useDidUpdateEffect } from '../../hook/useDidUpdateEffect';
 import { useFavorite } from '../../hook/useFavorite';
 import { RoutsPath } from '../../routes/routes';
 import { toProductAction } from '../../store/reducer/product/product.reducer';
@@ -36,6 +38,8 @@ export const ProductPage = () => {
 	const initPage = useRef<boolean>(false);
 	const { onAddItem, onSubItem, cart } = useCart();
 	const { onToggleFavorite, favorites } = useFavorite();
+	const [refTabs, setTabsRef] = useState<any | null>(null);
+	const [tab, setTab] = useState(0);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -50,6 +54,7 @@ export const ProductPage = () => {
 	}, []);
 
 	useEffect(() => {
+		setTab(0);
 		if (initPage.current) {
 			window.scrollTo(0, 0);
 			dispatch(toProductAction.setProduct(productStore));
@@ -57,7 +62,39 @@ export const ProductPage = () => {
 			initPage.current = true;
 		}
 	}, [slug]);
+
 	const productName = product?.name || productStore?.name || 'Product';
+
+	const tabItems = [
+		product ? (
+			<div className="product__base-info">
+				{product.desc === '' ? 'Описание отсутствует' : product.desc}
+			</div>
+		) : (
+			<div />
+		),
+		product ? (
+			<div className="product__base-info product-row">
+				{product.сharacteristic
+					? product.сharacteristic.map((item) => (
+							<div className="product-row__item" key={item.label}>
+								<TextItems title={item.label} items={item.items} />
+							</div>
+					  ))
+					: 'Ого! Кто-то забыл добавить характеристики'}
+			</div>
+		) : (
+			<div />
+		),
+		product ? (
+			<div className="product__base-info">
+				<Reviews reviews={product.reviews} swiperRef={refTabs} />
+			</div>
+		) : (
+			<div />
+		),
+	];
+
 	return (
 		<div>
 			<Helmet>
@@ -65,110 +102,90 @@ export const ProductPage = () => {
 				<title>{productName}</title>
 			</Helmet>
 			<Header />
-			{product ? (
-				<Container>
-					<Box styles={{ padding: '30px 0px' }}>
-						<Breadcrumbs
-							links={[
-								{
-									name: productStore?.category[0].name || '',
-									href: RoutsPath.products,
-								},
-								{ name: productName },
-							]}
-						/>
-					</Box>
+			<TabsContext.Provider
+				value={{
+					tabsRef: refTabs,
+					setTabsRef,
+				}}
+			>
+				{product ? (
+					<Container>
+						<Box styles={{ padding: '30px 0px' }}>
+							<Breadcrumbs
+								links={[
+									{
+										name: productStore?.category[0].name || '',
+										href: RoutsPath.products,
+									},
+									{ name: productName },
+								]}
+							/>
+						</Box>
 
-					<div className="product__info">
-						<div className="product__info-left">
-							{product.gallery ? (
-								<GallerySlider items={product.gallery} />
-							) : (
-								<img
-									src={product.preview}
-									alt=""
-									className="product__preview"
-								/>
-							)}
-						</div>
-						<div className="product__info-right">
-							<CardProductInfo
-								product={product}
-								onChangeRating={() => void 0}
-								onAddCart={onAddItem}
-								onSubCart={onSubItem}
-								onChangeFavorite={onToggleFavorite}
-								isFavorite={!!favorites.find((x) => x.id === product.id)}
-								currentCart={cart.find(
-									(x) => x.id === product.id && x.productSize === product.size
+						<div className="product__info">
+							<div className="product__info-left">
+								{product.gallery ? (
+									<GallerySlider items={product.gallery} />
+								) : (
+									<img
+										src={product.preview}
+										alt=""
+										className="product__preview"
+									/>
 								)}
-							/>
+							</div>
+							<div className="product__info-right">
+								<CardProductInfo
+									product={product}
+									onChangeRating={() => void 0}
+									onAddCart={onAddItem}
+									onSubCart={onSubItem}
+									onChangeFavorite={onToggleFavorite}
+									isFavorite={!!favorites.find((x) => x.id === product.id)}
+									currentCart={cart.find(
+										(x) => x.id === product.id && x.productSize === product.size
+									)}
+								/>
+							</div>
 						</div>
-					</div>
-					<div className="product__tabs">
-						<CardWrapper>
-							<TabsContainer
-								labels={[
-									{ label: 'Описание', id: 0 },
-									{ label: 'Характеристика', id: 1 },
-									{ label: 'Отзывы', id: 2 },
-								]}
-								items={[
-									<div className="product__base-info">
-										{product.desc === ''
-											? 'Описание отсутствует'
-											: product.desc}
-									</div>,
-									<div className="product__base-info product-row">
-										{product.сharacteristic
-											? product.сharacteristic.map((item) => (
-													<div className="product-row__item" key={item.label}>
-														<TextItems title={item.label} items={item.items} />
-													</div>
-											  ))
-											: 'Ого! Кто-то забыл добавить характеристики'}
-									</div>,
-									<div className="product__base-info">
-										{product.reviews && product.reviews.length > 0 ? (
-											'Отзыв'
-										) : (
-											<div className="product-reviews-empty">
-												<span>
-													У данного товара нет отзывов. Станьте первым, кто
-													оставил отзыв об этом товаре!
-												</span>
-												<ButtonDefault className="product-reviews__add">
-													<span>Написать отзыв</span>
-												</ButtonDefault>
-											</div>
-										)}
-									</div>,
-								]}
-							/>
-						</CardWrapper>
-					</div>
-				</Container>
-			) : (
-				'Product not found'
-			)}
+						<div className="product__tabs">
+							<CardWrapper>
+								<TabsContainer
+									labels={[
+										{ label: 'Описание', id: 0 },
+										{ label: 'Характеристика', id: 1 },
+										{ label: 'Отзывы', id: 2 },
+									]}
+									items={tabItems}
+									tab={tab}
+									onChangeTab={setTab}
+									update
+								/>
+							</CardWrapper>
+						</div>
+					</Container>
+				) : (
+					'Product not found'
+				)}
 
-			<Container paddingNull>
-				<SliderProduct
-					slides={sliderProducts}
-					title="Рекомендуем"
-					autoplay
-					offAddCart
-				/>
-			</Container>
-			<Container paddingNull>
-				<SliderProduct
-					slides={sliderProductsTop}
-					title="Похожие товары"
-					autoplay
-					offAddCart
-				/>
-			</Container>
-			<Footer />
+				<Container paddingNull>
+					<SliderProduct
+						slides={sliderProducts}
+						title="Рекомендуем"
+						autoplay
+						offAddCart
+					/>
+				</Container>
+				<Container paddingNull>
+					<SliderProduct
+						slides={sliderProductsTop}
+						title="Похожие товары"
+						autoplay
+						offAddCart
+					/>
+				</Container>
+				<Footer />
+			</TabsContext.Provider>
 		</div>
 	);
 };

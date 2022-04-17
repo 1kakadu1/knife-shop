@@ -2,4 +2,7 @@
     & div span span {
          margin-right: 8px;
     }
+   &_off_event{
+       pointer-events: none;
+   }
 }

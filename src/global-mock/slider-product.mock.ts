@@ -1,10 +1,11 @@
-import productPreview1 from '../../../assets/images/products/product-1.png';
-import productPreview2 from '../../../assets/images/products/product-2.png';
-import { mockCategory } from '../../../store/reducer/category/category.mock';
+import productPreview1 from '../assets/images/products/product-1.png';
+import productPreview2 from '../assets/images/products/product-2.png';
 import {
 	IProductCharacteristic,
 	IProductData,
-} from '../../../store/reducer/product/product.model';
+} from '../store/reducer/product/product.model';
+import { mockCategory } from './category.mock';
+import { reviewsProducts } from './reviews.mock';
 
 const fakeGallery = [
 	{
@@ -100,6 +101,7 @@ export const sliderProductsMock: IProductData[] = [
 		usersStars: 5,
 		gallery: fakeGallery,
 		сharacteristic: сharacteristic,
+		reviews: [reviewsProducts[0], reviewsProducts[2]],
 	},
 	{
 		id: 'id-2',
@@ -115,6 +117,7 @@ export const sliderProductsMock: IProductData[] = [
 		usersStars: 3,
 		gallery: fakeGallery,
 		сharacteristic: сharacteristic,
+		reviews: [reviewsProducts[0]],
 	},
 	{
 		id: 'id-3',
@@ -158,6 +161,7 @@ export const sliderProductsMock: IProductData[] = [
 		size: '95х18',
 		usersStars: 2,
 		gallery: fakeGallery,
+		reviews: [reviewsProducts[2], reviewsProducts[1]],
 	},
 	{
 		id: 'id-6',
@@ -186,6 +190,7 @@ export const sliderProductsMock: IProductData[] = [
 		size: '95х18',
 		usersStars: 1,
 		сharacteristic: сharacteristic,
+		reviews: [reviewsProducts[2]],
 	},
 	{
 		id: 'id-22',
@@ -226,6 +231,7 @@ export const sliderProductsMock: IProductData[] = [
 		size: '95х18',
 		usersStars: 5,
 		сharacteristic: сharacteristic,
+		reviews: [reviewsProducts[0], reviewsProducts[2]],
 	},
 	{
 		id: 'id-55',
@@ -253,5 +259,6 @@ export const sliderProductsMock: IProductData[] = [
 		size: '95х18',
 		usersStars: 4,
 		сharacteristic: сharacteristic,
+		reviews: [reviewsProducts[1], reviewsProducts[2]],
 	},
 ];

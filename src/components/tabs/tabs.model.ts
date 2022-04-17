@@ -5,6 +5,7 @@ export interface ITabs {
 	className?: string;
 	items: JSX.Element[];
 	tab: number;
+	update?: boolean;
 }
 
 export interface ITabsNavigation {
@@ -19,4 +20,7 @@ export interface ITabsContainer {
 	labels: { label: string; id: number }[];
 	items: JSX.Element[];
 	init?: number;
+	update?: boolean;
+	tab?: number;
+	onChangeTab?: (tab: number) => void;
 }

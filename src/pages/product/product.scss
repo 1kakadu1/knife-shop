@@ -62,19 +62,4 @@
             }
         }
   }
-  &-reviews-empty{
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  &-reviews__add{
-      width: 228px;
-      background-color: $black;
-      &:hover{
-          background-color: $hover;
-
-      }
-  }
-
 }

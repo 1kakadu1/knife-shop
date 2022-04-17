@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { mockCategory } from '../../../global-mock/category.mock';
 import { CATEGORY_KEY } from './category.const';
-import { mockCategory } from './category.mock';
 import { ICategoryItemData, ICategoryState } from './category.model';
 
 const setCategory = (

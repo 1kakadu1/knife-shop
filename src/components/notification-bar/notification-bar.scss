@@ -39,15 +39,15 @@
         }
     }
     &.info{
-        color: rgb(102, 60, 0);
-        background-color: rgb(255, 244, 229);
+        color: rgb(1, 67, 97);
+        background-color: rgb(229, 246, 253);
         & svg{
             color: #03a9f4;
         }
     }
     &.warning{
-        color: rgb(1, 67, 97);
-        background-color: rgb(229, 246, 253);
+        color: rgb(102, 60, 0);
+        background-color: rgb(255, 244, 229);
         & svg{
             color: #ff9800;
         }
