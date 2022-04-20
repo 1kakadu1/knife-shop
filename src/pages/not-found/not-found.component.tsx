@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Footer } from '../../components/footer/footer.component';
 import { Header } from '../../components/header/header.component';
-import { RoutsPath } from '../../routes/routes';
+import { RoutsPath } from '../../routes/routes.model';
 import './not-found.scss';
 
 export const NotFoundPage = () => {

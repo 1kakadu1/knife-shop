@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RoutsPath } from '../../routes/routes';
+import { RoutsPath } from '../../routes/routes.model';
 import { IBreadcrumbsProps } from './breadcrumbs.model';
 import './breadcrumbs.scss';
 

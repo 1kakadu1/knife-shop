@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../../hook/useCart';
+import { RoutsPath } from '../../routes/routes.model';
 import { CartBtn } from '../buttons/cart-btn/cart-btn.component';
 import { ICartInfoBtnProps } from './cart-info-btn.model';
 import './cart-info-btn.scss';
@@ -19,7 +21,9 @@ export const CartInfoBtn = ({ showInfo }: ICartInfoBtnProps) => {
 				}`}
 			>
 				<div className="cart-order__price">{totalPrice} $</div>
-				<div className="cart-order__btn">Оформить заказ</div>
+				<Link className="cart-order__btn" to={RoutsPath.cart}>
+					Оформить заказ
+				</Link>
 			</div>
 		</div>
 	);

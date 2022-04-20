@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CITY_DEFAULT, PHONES } from '../../const/setting.const';
-import { RoutsPath } from '../../routes/routes';
+import { RoutsPath } from '../../routes/routes.model';
 import { toFavoriteAction } from '../../store/reducer/favorite/favorite.reducer';
 import { CartInfoBtn } from '../cart-info-btn/cart-info-btn.component';
 

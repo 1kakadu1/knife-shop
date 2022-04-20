@@ -8,7 +8,7 @@ import { IconFavorite } from '../../icons/favorite.icon.component';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { toCartSelector } from '../../../store/reducer/cart/cart.selector';
-import { RoutsPath } from '../../../routes/routes';
+import { RoutsPath } from '../../../routes/routes.model';
 import { Rating } from '../../rating/rating.component';
 import { Divider } from '../../divider/divider.component';
 import { Box } from '../../box/box.component';

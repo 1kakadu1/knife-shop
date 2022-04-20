@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toCategorySelector } from '../../store/reducer/category/category.selector';
 import { createCatalog } from '../../utils/catalog.utils';
 import { Container } from '../container/container.component';

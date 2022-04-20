@@ -6,6 +6,8 @@ import { CSSTransition } from 'react-transition-group';
 import './cart.scss';
 import { CartItem } from '../ cards/cart-item/cart-item.component';
 import { useCart } from '../../hook/useCart';
+import { useNavigate } from 'react-router-dom';
+import { RoutsPath } from '../../routes/routes.model';
 
 const CartMiniComponent = ({
 	className = '',
@@ -20,9 +22,15 @@ const CartMiniComponent = ({
 		onToggleCart,
 		isOpen: open,
 	} = useCart();
-	const goToCart = () => {};
+	const navigate = useNavigate();
+
 	const handleClose = () => {
 		onToggleCart(false);
+	};
+
+	const goToCart = () => {
+		handleClose();
+		navigate(RoutsPath.cart);
 	};
 
 	return (
@@ -60,7 +68,7 @@ const CartMiniComponent = ({
 				</div>
 				<div className="cart-mini__footer">
 					<ButtonDefault className="cart-mini__btn-cart" onClick={goToCart}>
-						<span>В корзину</span>
+						В корзину
 					</ButtonDefault>
 					<div className="cart-mini__total-price">{totalPrice} $</div>
 				</div>

@@ -1,0 +1,36 @@
+.cart-page{
+    min-height: 600px;
+    overflow: hidden;
+    padding: 10px;
+    &-empty{
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &__preview{
+            width: 320px;
+        }
+        &__title{
+            font-size: 24px;
+            padding-top: 20px;
+            font-weight: 600;
+        }
+    }
+}
+.fade-enter{
+    opacity: 0;
+ }
+ .fade-exit{
+    opacity: 1;
+ }
+ .fade-enter-active{
+    opacity: 1;
+ }
+ .fade-exit-active{
+    opacity: 0;
+ }
+ .fade-enter-active,
+ .fade-exit-active{
+    transition: opacity 500ms;
+ }

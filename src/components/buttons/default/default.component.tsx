@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './default.scss';
 interface IButtonDefaultProps extends React.DOMAttributes<HTMLButtonElement> {
 	className?: string;
-	children: JSX.Element;
+	children: JSX.Element | string;
 	link?: string;
 }
 export const ButtonDefault = ({

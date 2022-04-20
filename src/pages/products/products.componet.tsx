@@ -20,7 +20,7 @@ import {
 } from '../../store/reducer/products/products.model';
 import { Pagination } from '../../components/pagination/pagination.component';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { RoutsPath } from '../../routes/routes';
+import { RoutsPath } from '../../routes/routes.model';
 import { useProduct } from '../../hook/useProduct';
 import { useFavorite } from '../../hook/useFavorite';
 import { useCart } from '../../hook/useCart';
@@ -99,6 +99,7 @@ export const ProductsPage = () => {
 							</SectionRow>
 						}
 						sticky
+						shadow
 					/>
 					<div className="page-pagination-container">
 						<Pagination

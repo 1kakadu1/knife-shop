@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RoutsPath } from '../../../routes/routes';
+import { RoutsPath } from '../../../routes/routes.model';
 import { CardWrapper } from '../card-wrapper/card-wrapper.component';
 import { ICardPostProps } from './card-post.model';
 import './card-post.scss';

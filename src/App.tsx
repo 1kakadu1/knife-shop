@@ -1,11 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { HomePage } from './pages/home.component';
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	Navigate,
-} from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/fonts/Montserrat/Montserrat-Regular.ttf';
 import './assets/fonts/Montserrat/Montserrat-SemiBold.ttf';
 import './styles/theme.scss';
@@ -17,11 +11,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/state';
 import { CartMini } from './components/cart/cart.mini.components';
 import { FavoriteModal } from './components/favorite/favorite.component';
-import { RoutsPath } from './routes/routes';
-import { NotFoundPage } from './pages/not-found/not-found.component';
-import { ProductsPage } from './pages/products/products.componet';
-import { ProductPage } from './pages/product/product.component';
-
+import { routesPublic } from './routes/routes';
 function App() {
 	const [notification, setNotification] = useState({
 		message: '',
@@ -35,24 +25,17 @@ function App() {
 				<NotificationContext.Provider value={contextValue}>
 					<Router>
 						<Routes>
-							<Route path={RoutsPath.home} element={<HomePage />} />
-							<Route
-								path={RoutsPath.products + '/:page'}
-								element={<ProductsPage />}
-							/>
-							<Route
-								path={RoutsPath.products}
-								element={<Navigate replace to={RoutsPath.products + '/1'} />}
-							/>
-							<Route
-								path={RoutsPath.product + '/:slug'}
-								element={<ProductPage />}
-							/>
-							<Route path={'*'} element={<NotFoundPage />} />
+							{routesPublic.map((route) => (
+								<Route
+									path={route.path}
+									element={route.element}
+									key={route.path}
+								/>
+							))}
 						</Routes>
+						<CartMini portal />
 					</Router>
 					<NotificationBar />
-					<CartMini portal />
 					<FavoriteModal />
 				</NotificationContext.Provider>
 			</Provider>

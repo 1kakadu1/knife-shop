@@ -4,12 +4,7 @@ import { SlideDownCustom } from '../../slide-down/slide-down.component';
 import { Aside } from '../aside.component';
 import '../aside.scss';
 import { RangeSlider } from '../../inputs/range/range.component';
-import {
-	defaultPrice,
-	defaultWidth,
-	productionMock,
-	ratingMock,
-} from './aside-product.mock';
+import { defaultPrice, ratingMock } from './aside-product.mock';
 import { Checkbox } from '../../inputs/checkbox/checkbox.component';
 import { ButtonDefault } from '../../buttons/default/default.component';
 import starActive from '../../../assets/images/star-active.png';

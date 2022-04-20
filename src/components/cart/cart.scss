@@ -142,3 +142,27 @@
     }
 
 }
+
+.cart-full{
+    &-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__title{
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        &__count{
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            color: $write;
+            background-color: #E8AA31;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+    }
+}
