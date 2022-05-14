@@ -1,5 +1,5 @@
-import productPreview1 from '../assets/images/products/product-1.png';
-import productPreview2 from '../assets/images/products/product-2.png';
+import productPreview1 from '../assets/images/products/product-1-min.png';
+import productPreview2 from '../assets/images/products/product-2-min.png';
 import {
 	IProductCharacteristic,
 	IProductData,

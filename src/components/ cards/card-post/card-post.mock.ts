@@ -1,8 +1,8 @@
 import { IPostData } from './card-post.model';
-import post1 from '../../../assets/images/posts/post-1.png';
-import post2 from '../../../assets/images/posts/post-1.png';
-import post3 from '../../../assets/images/posts/post-3.png';
-import post4 from '../../../assets/images/posts/post-4.png';
+import post1 from '../../../assets/images/posts/post-1-min.png';
+import post2 from '../../../assets/images/posts/post-1-min.png';
+import post3 from '../../../assets/images/posts/post-3-min.png';
+import post4 from '../../../assets/images/posts/post-4-min.png';
 
 export const cardPostsMock: IPostData[] = [
 	{

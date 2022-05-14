@@ -1,6 +1,6 @@
 export interface ISelectProps {
 	placeholder?: string;
-	onChange: (value: any) => void;
+	onChange: (value: any, e?: any) => void;
 	value: any;
 	id: string;
 	name?: string;
@@ -12,6 +12,8 @@ export interface ISelectProps {
 	validationOnChange?: boolean;
 	options: ISelectOptions[];
 	black?: boolean;
+	onBlur?: (e: any) => void;
+	onFocus?: (e: any) => void;
 }
 
 export interface ISelectOptions {

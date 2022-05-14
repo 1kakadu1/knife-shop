@@ -57,7 +57,6 @@ export const InputDefault = ({
 
 	const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const val = e.target.value;
-
 		if (valueProps !== undefined && onChange) {
 			onChange(e);
 		} else {

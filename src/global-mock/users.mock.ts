@@ -1,6 +1,6 @@
 import { IUserData } from '../store/reducer/product/product.model';
-import userP1 from '../assets/images/user/user-p1.jpg';
-import userP2 from '../assets/images/user/user-p2.jpg';
+import userP1 from '../assets/images/user/user-p1-min.jpg';
+import userP2 from '../assets/images/user/user-p2-min.jpg';
 
 export const users: IUserData[] = [
 	{

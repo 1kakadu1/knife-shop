@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StarsRating } from 'stars-rating-react-hooks';
-import starActive from '../../assets/images/star-active.png';
-import starEmpty from '../../assets/images/star-empty.png';
-import starHalf from '../../assets/images/star-half.png';
+import starActive from '../../assets/images/star-active-min.png';
+import starEmpty from '../../assets/images/star-empty-min.png';
+import starHalf from '../../assets/images/star-half-min.png';
 import './rating.scss';
 
 export const Rating = ({
@@ -22,7 +22,7 @@ export const Rating = ({
 	className?: string;
 	offChange?: boolean;
 }) => {
-	const [selecting, setSelecting] = useState<{
+	const [, setSelecting] = useState<{
 		isSelecting: boolean;
 		selectingValue: number;
 	} | null>(null);

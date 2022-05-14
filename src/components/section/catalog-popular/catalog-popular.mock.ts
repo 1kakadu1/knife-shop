@@ -1,15 +1,15 @@
 import { ICardInfoProps } from '../../ cards/card-info/card-info.model';
-import cat1 from '../../../assets/images/catalog/cat-1.png';
-import cat1Small from '../../../assets/images/catalog/cat-1-small.png';
-import cat2 from '../../../assets/images/catalog/cat-2.png';
-import cat2Small from '../../../assets/images/catalog/cat-2-small.png';
-import cat3 from '../../../assets/images/catalog/cat-3.png';
-import cat4 from '../../../assets/images/catalog/cat-4.png';
-import cat5 from '../../../assets/images/catalog/cat-5.png';
-import cat6 from '../../../assets/images/catalog/cat-6.png';
-import cat7 from '../../../assets/images/catalog/cat-7.png';
-import cat7Small from '../../../assets/images/catalog/cat-7-small.png';
-import cat8 from '../../../assets/images/catalog/cat-8.png';
+import cat1 from '../../../assets/images/catalog/cat-1-min.png';
+import cat1Small from '../../../assets/images/catalog/cat-1-small-min.png';
+import cat2 from '../../../assets/images/catalog/cat-2-min.png';
+import cat2Small from '../../../assets/images/catalog/cat-2-small-min.png';
+import cat3 from '../../../assets/images/catalog/cat-3-min.png';
+import cat4 from '../../../assets/images/catalog/cat-4-min.png';
+import cat5 from '../../../assets/images/catalog/cat-5-min.png';
+import cat6 from '../../../assets/images/catalog/cat-6-min.png';
+import cat7 from '../../../assets/images/catalog/cat-7-min.png';
+import cat7Small from '../../../assets/images/catalog/cat-7-small-min.png';
+import cat8 from '../../../assets/images/catalog/cat-8-min.png';
 
 export const mockCatalogTop: ICardInfoProps[] = [
 	{

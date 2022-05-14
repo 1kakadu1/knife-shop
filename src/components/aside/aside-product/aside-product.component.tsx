@@ -7,7 +7,7 @@ import { RangeSlider } from '../../inputs/range/range.component';
 import { defaultPrice, ratingMock } from './aside-product.mock';
 import { Checkbox } from '../../inputs/checkbox/checkbox.component';
 import { ButtonDefault } from '../../buttons/default/default.component';
-import starActive from '../../../assets/images/star-active.png';
+import starActive from '../../../assets/images/star-active-min.png';
 import { newArray } from '../../../utils/functions';
 import { useDispatch, useSelector } from 'react-redux';
 import {

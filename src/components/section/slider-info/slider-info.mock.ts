@@ -1,5 +1,5 @@
 import { ISliderInfoData } from './slider-info.model';
-import s1 from '../../../assets/images/slider-home/s1.png';
+import s1 from '../../../assets/images/slider-home/s1-min.png';
 
 export const sliderInfoMock: ISliderInfoData[] = [
 	{

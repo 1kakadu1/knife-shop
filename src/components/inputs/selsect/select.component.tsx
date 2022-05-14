@@ -14,7 +14,10 @@ export const SelectDefault = ({
 	validation,
 	validationOnChange,
 	options,
+	onBlur,
+	onFocus,
 	black = false,
+	name = '',
 }: ISelectProps) => {
 	const [error, setError] = useState(errorProps || '');
 
@@ -52,7 +55,7 @@ export const SelectDefault = ({
 			<div
 				className={`select-form-control__wrapper-input ${
 					isError ? 'error' : ''
-				}`}
+				} ${label ? 'select-form-control_label' : ''}`}
 			>
 				<select
 					className={
@@ -63,9 +66,12 @@ export const SelectDefault = ({
 					id={id}
 					value={valueProps || options[0].value}
 					onChange={onChangeInput}
+					onBlur={onBlur}
+					onFocus={onFocus}
+					name={name}
 				>
 					{placeholder && placeholder !== '' && (
-						<option value="" disabled>
+						<option value={`''`} disabled>
 							{' '}
 							{placeholder}{' '}
 						</option>
