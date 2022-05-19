@@ -355,14 +355,14 @@ export const mockCategory: ICategoryItemData[] = [
 	{
 		name: 'Клинковое оружие',
 		id: 'id-cat-bladed-weapons-all',
-		href: 'products',
+		href: '/products-bladed-weapons-all',
 		order: 3,
 	},
 	// #3-1 parent cat
 	{
 		name: 'Сувенирные изделия',
 		id: 'id-cat-related-products-3-1',
-		href: 'products',
+		href: '/products-related-products',
 		catalog: 'id-cat-bladed-weapons-all',
 		order: 1,
 	},
@@ -385,7 +385,7 @@ export const mockCategory: ICategoryItemData[] = [
 	{
 		name: 'Фонари ARMYTEK',
 		id: 'id-cat-ARMYTEK-flashlights-all',
-		href: 'products',
+		href: '/products-ARMYTEK-flashlights-all',
 		order: 4,
 	},
 	// #2-1 parent cat
@@ -415,14 +415,14 @@ export const mockCategory: ICategoryItemData[] = [
 	{
 		name: 'Сопуствующие товары',
 		id: 'id-cat-related-products-all',
-		href: 'products',
+		href: '/products-related-products-all',
 		order: 5,
 	},
 	// #5-1 parent cat
 	{
 		name: 'Сувенирные изделия',
 		id: 'id-cat-related-products-5-1',
-		href: 'products',
+		href: '/products',
 		catalog: 'id-cat-related-products-all',
 		order: 1,
 	},

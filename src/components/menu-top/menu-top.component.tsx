@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useWindowSize, WindowBreakpoints } from '../../utils/useWindowSize';
 import { ButtonBurger } from '../buttons/burger/burger.component';
 import { PortalWrapper } from '../portal-wrapper/portal-wrapper.container';
@@ -17,7 +18,14 @@ const MenuTopNav = ({ links, catalogMenu, open }: IMenuTopNavProps) => {
 			<ul className={`menu-top__list`}>
 				{links.map((item: IMenuLink) => (
 					<li className="menu-top__nav__item" key={item.href}>
-						{item.name}
+						<Link
+							to={item.href}
+							className={`${
+								window.location.href.indexOf(item.href) !== -1 ? 'active' : ''
+							}`}
+						>
+							{item.name}
+						</Link>
 					</li>
 				))}
 			</ul>

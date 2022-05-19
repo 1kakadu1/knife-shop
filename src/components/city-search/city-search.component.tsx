@@ -3,9 +3,7 @@ import './city-search.scss';
 import { ICitySearch } from './city-search.model';
 import Map, { NavigationControl } from 'react-map-gl';
 import GeocoderControl from './geocoder.component';
-
-const mapboxAccessToken =
-	'pk.eyJ1IjoiMWtha2FkeTEiLCJhIjoiY2wyeDhxdG82MHQ5MDNqb3pwdDh1YXRyeiJ9.QKQ_NGfhIoRaNbxvlbOyCw';
+import { mapboxAccessToken } from '../../const/setting.const';
 
 export const CitySearch = ({
 	className = '',
@@ -23,7 +21,6 @@ export const CitySearch = ({
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition((pos) => {
-			console.log(pos.coords.latitude, pos.coords.longitude);
 			setViewState({
 				...viewState,
 				latitude: pos.coords.latitude,

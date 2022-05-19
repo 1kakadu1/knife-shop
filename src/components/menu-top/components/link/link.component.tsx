@@ -9,7 +9,7 @@ export const LinkProfile = () => {
 			<span className="link-profile__icon">
 				<UserIcon />
 			</span>
-			Личный кабинет
+			Войти
 		</Link>
 	);
 };

@@ -6,6 +6,7 @@ export enum RoutsPath {
 	cart = '/cart',
 	not_found = '/404',
 	order = '/order',
+	contact = '/contact',
 }
 
 export interface IRouteItem {

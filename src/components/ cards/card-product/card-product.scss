@@ -23,6 +23,9 @@
         font-size: 20px;
         line-height: 34px;
         color: #141414;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
     &__row{
         display: flex;
@@ -113,6 +116,18 @@
     & img{
         width: 22px;
         height: 22px;
+        @media screen  and (min-width: 996px){
+            width: 1.5vw;
+            height: 1.5vw;
+        }
+        @media screen  and (min-width: 1379px){
+            width: 0.7vw;
+            height: 0.7vw;
+        }
+        @media screen  and (min-width: 1580px){
+            width: 22px;
+            height: 22px;
+        }
     }
     
 }

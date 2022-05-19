@@ -6,6 +6,7 @@ import { IRouteItem, RoutsPath } from './routes.model';
 import { CartPage } from '../pages/cart/cart.component';
 import { ProductPage } from '../pages/product/product.component';
 import { OrderPage } from '../pages/order/order.component';
+import { ContactPage } from '../pages/contact/contact.component';
 
 export const routesPublic: IRouteItem[] = [
 	{
@@ -49,6 +50,13 @@ export const routesPublic: IRouteItem[] = [
 		element: <OrderPage />,
 		location: RoutsPath.order,
 		path: RoutsPath.order,
+	},
+	{
+		name: 'Contact',
+		private: false,
+		element: <ContactPage />,
+		location: RoutsPath.contact,
+		path: RoutsPath.contact,
 	},
 	{
 		name: '404',

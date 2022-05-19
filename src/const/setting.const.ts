@@ -32,3 +32,6 @@ export const EMAIL = 'info@mail.test';
 export const CURRENCY = '$';
 
 export const MASK_PHONE = '+1 (999) 999-99-99';
+
+export const mapboxAccessToken =
+	'pk.eyJ1IjoiMWtha2FkeTEiLCJhIjoiY2wyeDhxdG82MHQ5MDNqb3pwdDh1YXRyeiJ9.QKQ_NGfhIoRaNbxvlbOyCw';

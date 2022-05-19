@@ -41,6 +41,15 @@
             padding: 0px 60px 0px 0px;
             border-bottom: none;
         }
+        & > a{
+            color: $write;
+            &:hover{
+                color: $hover;
+            } 
+            &.active{
+                color: $hover;
+            } 
+        }
     }
     &__mobile{
         @media screen and (max-width: 992px){
