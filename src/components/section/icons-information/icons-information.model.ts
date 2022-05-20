@@ -3,4 +3,5 @@ import { ICardIconInfoProps } from '../../ cards/card-icon-info/card-icon-info.m
 export interface IIconsInformationProps {
 	data: ICardIconInfoProps[];
 	className?: string;
+	color?: 'write' | 'black';
 }

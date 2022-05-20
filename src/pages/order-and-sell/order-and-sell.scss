@@ -1,0 +1,63 @@
+@import "../../styles/vars.scss";
+
+.about{
+    &-title{
+        font-size: 24px;
+        font-weight: bold;
+        &_center{
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.logo-list{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    &__item{
+        width: 50%;
+        text-align: center;
+        @media screen and (min-width: 768px) {
+            width: 25%;
+        }
+    }
+    &__preview{
+        @include adaptive-var("width", 250, 80, 1);
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.pay-info{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    padding-bottom: 10px;
+    &__item{
+        width: 100%;
+        @media screen and (min-width: 768px) {
+            width: 50%;
+        }
+        @media screen and (min-width: 996px) {
+            width: 25%;
+        }
+        &-card{
+            text-align: left;
+            & .card-icon-info__title{
+                @include adaptive-var("font-size", 16, 12, 1);
+            }
+            & .card-icon-info__description{
+                font-weight: 100;
+                padding-top: 0px;
+                @include adaptive-var("font-size", 14, 11, 1);
+            }
+            & .card-icon-info__icon{
+                margin: 0;
+            }
+        }
+    }
+}

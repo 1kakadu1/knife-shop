@@ -6,6 +6,7 @@ import './icons-information.scss';
 export const IconsInformation = ({
 	className = '',
 	data,
+	color = 'write',
 }: IIconsInformationProps) => {
 	return (
 		<div className={'icons-information ' + className}>
@@ -14,7 +15,11 @@ export const IconsInformation = ({
 					className="icons-information__item"
 					key={'icons-information-' + index}
 				>
-					<CardIconInfo icon={item.icon} description={item.description} />
+					<CardIconInfo
+						icon={item.icon}
+						description={item.description}
+						color={color}
+					/>
 				</div>
 			))}
 		</div>

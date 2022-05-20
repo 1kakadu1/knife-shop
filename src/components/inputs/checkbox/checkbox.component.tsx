@@ -11,7 +11,6 @@ export const Checkbox = ({
 	label,
 }: ICheckboxProps) => {
 	const onChangeInput = () => {
-		console.log(!checked);
 		onChange && onChange(!checked, id, value);
 	};
 

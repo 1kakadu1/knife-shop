@@ -7,6 +7,8 @@ import { CartPage } from '../pages/cart/cart.component';
 import { ProductPage } from '../pages/product/product.component';
 import { OrderPage } from '../pages/order/order.component';
 import { ContactPage } from '../pages/contact/contact.component';
+import { AboutPage } from '../pages/about/about.component';
+import { OrderAndSellPage } from '../pages/order-and-sell/order-and-sell.component';
 
 export const routesPublic: IRouteItem[] = [
 	{
@@ -38,6 +40,27 @@ export const routesPublic: IRouteItem[] = [
 		path: RoutsPath.product + '/:slug',
 	},
 	{
+		name: 'News',
+		private: false,
+		element: <ProductsPage />,
+		location: RoutsPath.news,
+		path: RoutsPath.news + '/:page',
+	},
+	{
+		name: 'News redirect',
+		private: false,
+		element: <Navigate replace to={RoutsPath.news + '/1'} />,
+		location: RoutsPath.news,
+		path: RoutsPath.news,
+	},
+	{
+		name: 'News single',
+		private: false,
+		element: <ProductPage />,
+		location: RoutsPath.news,
+		path: RoutsPath.news + '/:slug',
+	},
+	{
 		name: 'Cart',
 		private: false,
 		element: <CartPage />,
@@ -57,6 +80,20 @@ export const routesPublic: IRouteItem[] = [
 		element: <ContactPage />,
 		location: RoutsPath.contact,
 		path: RoutsPath.contact,
+	},
+	{
+		name: 'About',
+		private: false,
+		element: <AboutPage />,
+		location: RoutsPath.about,
+		path: RoutsPath.about,
+	},
+	{
+		name: 'Order and sell',
+		private: false,
+		element: <OrderAndSellPage />,
+		location: RoutsPath.order_and_sell,
+		path: RoutsPath.order_and_sell,
 	},
 	{
 		name: '404',

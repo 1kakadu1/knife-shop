@@ -21,6 +21,20 @@ $border_color: #202020;
             }
         }
     }
+    &-adornment{
+        position: absolute;
+        z-index: 6;
+        top: 0;
+        min-width: 49px;
+        min-height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &__end{
+            right: 0px;
+        }
+    }
+
     &__input{
         height: 49px;
         width: 100%;

@@ -22,6 +22,7 @@ export const InputDefault = ({
 	min,
 	max,
 	debounce = false,
+	endAdornment,
 	...props
 }: IInputDefaultProps) => {
 	const [value, setValue] = useState('');
@@ -100,6 +101,11 @@ export const InputDefault = ({
 					min={min}
 					{...props}
 				/>
+				{endAdornment && onSubmit === undefined && (
+					<div className="input-form-control-adornment input-form-control-adornment__end">
+						{endAdornment}
+					</div>
+				)}
 				{onSubmit && (
 					<ButtonDefault
 						className="input-form-control__btn"

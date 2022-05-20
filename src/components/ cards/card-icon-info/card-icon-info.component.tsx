@@ -4,15 +4,24 @@ import './card-icon-info.scss';
 
 export const CardIconInfo = ({
 	icon,
+	title,
 	description,
 	className = '',
+	color = 'write',
 }: ICardIconInfoProps) => {
 	return (
 		<div className={'card-icon-info ' + className}>
-			<div className="card-icon-info__icon">
+			<div className={`card-icon-info__icon card-icon-info_${color}`}>
 				{typeof icon === 'string' ? <img src={icon} alt="" /> : icon}
 			</div>
-			<div className="card-icon-info__description">{description}</div>
+			{title && (
+				<div className={`card-icon-info__title  card-icon-info_${color}`}>
+					{title}
+				</div>
+			)}
+			<div className={`card-icon-info__description  card-icon-info_${color}`}>
+				{description}
+			</div>
 		</div>
 	);
 };

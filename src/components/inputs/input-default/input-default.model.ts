@@ -13,4 +13,5 @@ export interface IInputDefaultProps
 	validationOnChange?: boolean;
 	write?: boolean;
 	debounce?: boolean;
+	endAdornment?: JSX.Element;
 }

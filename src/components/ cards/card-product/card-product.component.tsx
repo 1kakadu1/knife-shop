@@ -65,8 +65,9 @@ export const CardProduct = ({
 							<Rating
 								id={data.id}
 								size={data.size}
-								selected={data.userStars || 0}
+								selected={data.usersStars || 0}
 								onChangeRating={onChangeRating}
+								offChange
 							/>
 						</div>
 						<div className="card-product__row-item">

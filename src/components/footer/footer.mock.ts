@@ -1,17 +1,19 @@
+import { RoutsPath } from '../../routes/routes.model';
+
 export const footerMenuTopMock = [
 	{
 		title: 'ИНФОРМАЦИЯ',
 		menu: [
 			{
-				href: '#',
+				href: RoutsPath.products,
 				name: 'Городские ножи в Городе и области',
 			},
 			{
-				href: '#',
+				href: RoutsPath.products,
 				name: 'Ножевые стали',
 			},
 			{
-				href: '#',
+				href: RoutsPath.about,
 				name: 'О нас',
 			},
 			{
@@ -19,7 +21,7 @@ export const footerMenuTopMock = [
 				name: 'Условия оплаты и доставки',
 			},
 			{
-				href: '#',
+				href: RoutsPath.not_found,
 				name: 'Политика конфиденциальности',
 			},
 		],
@@ -28,15 +30,15 @@ export const footerMenuTopMock = [
 		title: 'СЛУЖБА ПОДДЕРЖКИ',
 		menu: [
 			{
-				href: '#',
+				href: RoutsPath.contact,
 				name: 'Контактная информация',
 			},
 			{
-				href: '#',
+				href: RoutsPath.not_found,
 				name: 'Возврат товара',
 			},
 			{
-				href: '#',
+				href: RoutsPath.not_found,
 				name: 'Карта сайта',
 			},
 		],
@@ -46,20 +48,21 @@ export const footerMenuTopMock = [
 		title: 'ДОПОЛНИТЕЛЬНО',
 		menu: [
 			{
-				href: '#',
+				href: RoutsPath.not_found,
 				name: 'Подарочные сертификаты',
 			},
 			{
-				href: '#',
+				href: RoutsPath.not_found,
 				name: 'Партнеры',
 			},
 			{
-				href: '#',
+				href: RoutsPath.products,
 				name: 'Товары со скидкой',
 			},
 		],
 	},
-
+	/*
+	//TODO: private route
 	{
 		title: 'ЛИЧНЫЙ КАБИНЕТ',
 		menu: [
@@ -81,4 +84,5 @@ export const footerMenuTopMock = [
 			},
 		],
 	},
+	*/
 ];

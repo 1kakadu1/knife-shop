@@ -6,7 +6,6 @@ const setCart = (
 	state: ICart,
 	{ payload }: { payload: { prod: ICartItem[] } }
 ) => {
-	console.log('aaaa', payload.prod);
 	state.products = payload.prod;
 };
 

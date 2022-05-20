@@ -1,3 +1,5 @@
+@import "../../../styles/vars.scss";
+
 .card-icon-info{
     width: 100%;
     text-align: center;
@@ -8,12 +10,48 @@
         max-width: 70px;
         min-width: 60px;
         margin: 0 auto;
+        &.card-icon-info_write{
+            & svg{
+                fill: $write;
+                & path{
+                    fill: $write;
+                }
+            }
+          
+        }
+        &.card-icon-info_black{
+            & svg{
+                fill: $black;
+                & path{
+                    fill: $black;
+                }
+            }
+          
+        }
+    }
+    &__title{
+        padding-top: 16px;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 32px;
+        &.card-icon-info_write{
+            color: $write;
+        }
+        &.card-icon-info_black{
+            color: $black;
+        }
     }
     &__description{
         padding-top: 16px;
         font-weight: 600;
         font-size: 20px;
         line-height: 32px;
-        color: #fff;
+        &.card-icon-info_write{
+            color: $write;
+        }
+        &.card-icon-info_black{
+            color: $black;
+        }
     }
+
 }

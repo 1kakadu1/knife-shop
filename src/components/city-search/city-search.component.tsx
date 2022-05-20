@@ -44,7 +44,6 @@ export const CitySearch = ({
 					mapboxAccessToken={mapboxAccessToken}
 					position="top-left"
 					onResult={(e) => {
-						console.log('onResult', e);
 						onChange && onChange((e as any).result.place_name);
 					}}
 				/>

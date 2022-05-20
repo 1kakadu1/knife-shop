@@ -84,7 +84,6 @@ export const MenuCatalog = ({ fixed, portal }: IMenuCatalogProps) => {
 	const [open, setOpen] = useState<string>('');
 
 	const onToggle = (value: string) => {
-		console.log('value', value);
 		if (open === '') {
 			setOpen(value);
 			setActive(value);

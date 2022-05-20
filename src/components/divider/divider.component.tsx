@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './divider.module.scss';
-console.log('classes', classes);
+
 export const Divider = ({
 	styles,
 	className = '',
