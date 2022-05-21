@@ -1,6 +1,7 @@
 export interface ICardPostProps {
 	data: IPostData;
 	className?: string;
+	shadow?: boolean;
 }
 
 export interface IPostData {
@@ -9,4 +10,5 @@ export interface IPostData {
 	date: string;
 	preview: string;
 	id: string;
+	href: string;
 }

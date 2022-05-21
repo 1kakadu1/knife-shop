@@ -17,6 +17,15 @@
         padding: 20px 26px;
         display: block;
     }
+    &__desc{
+        font-size: 14px;
+        line-height: 28px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        color: $black;
+        overflow: hidden;
+    }
     &__title{
         display: -webkit-box;
         -webkit-line-clamp: 2;

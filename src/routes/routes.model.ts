@@ -1,6 +1,7 @@
 export enum RoutsPath {
 	home = '/',
 	news = '/news',
+	news_single = '/news-single',
 	product = '/product',
 	products = '/products',
 	cart = '/cart',

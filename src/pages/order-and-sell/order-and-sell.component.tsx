@@ -18,6 +18,7 @@ import pi2 from '../../assets/images/order/pi2.png';
 import pi3 from '../../assets/images/order/pi3.png';
 import pi4 from '../../assets/images/order/pi4.png';
 import { CardIconInfo } from '../../components/ cards/card-icon-info/card-icon-info.component';
+import { SubscribeSection } from '../../components/section/subscribe-section/subscribe-section.component';
 
 export const OrderAndSellPage = () => {
 	return (
@@ -111,6 +112,7 @@ export const OrderAndSellPage = () => {
 					</ul>
 				</Box>
 			</Container>
+			<SubscribeSection />
 			<Footer />
 		</div>
 	);

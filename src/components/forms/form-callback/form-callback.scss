@@ -1,0 +1,27 @@
+.form-callback{
+    &__btn{
+        width: 160px;
+        margin-left: 10px;
+    }
+    .row-callback{
+        display: flex;
+        align-items: center;
+        row-gap: 20px;
+        flex-direction: column;
+        @media screen and (min-width: 768px){
+            flex-direction: row;
+        }
+    }
+    .col-callback-6{
+        width: 100%;
+        padding: 10px;
+        @media screen and (min-width: 768px){
+            width: 50%;
+        }
+    }
+
+    .col-callback-12{
+        width: 100%;
+        padding: 10px;
+    }
+}

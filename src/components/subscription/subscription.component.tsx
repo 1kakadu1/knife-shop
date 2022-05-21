@@ -12,6 +12,7 @@ export const Subscription = ({
 	title,
 	onSend,
 	className = '',
+	write,
 }: ISubscriptionProps) => {
 	const { updateNotification } = useContext(NotificationContext);
 	const [agree, setAgree] = useState(false);
@@ -45,6 +46,7 @@ export const Subscription = ({
 
 						return '';
 					}}
+					write={write}
 				/>
 			</div>
 			<div className="subscription__checkbox">

@@ -11,6 +11,7 @@ import { Box } from '../../components/box/box.component';
 import { Breadcrumbs } from '../../components/breadcrumbs/breadcrumbs.component';
 import { IconsInformation } from '../../components/section/icons-information/icons-information.component';
 import { iconsInformationMock } from '../../components/section/icons-information/icons-information.mock';
+import { SubscribeSection } from '../../components/section/subscribe-section/subscribe-section.component';
 
 export const AboutPage = () => {
 	return (
@@ -50,6 +51,7 @@ export const AboutPage = () => {
 				<IconsInformation data={iconsInformationMock} color="black" />
 				<Box styles={{ padding: '20px' }} />
 			</Container>
+			<SubscribeSection />
 			<Footer />
 		</div>
 	);

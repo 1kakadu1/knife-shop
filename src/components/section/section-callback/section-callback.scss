@@ -1,0 +1,23 @@
+@import "../../../styles/vars.scss";
+
+.callback-section{
+    &__title{
+        color: $write;
+        font-weight: 800;
+        padding-bottom: 10px;
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+    }
+    &__input{
+        padding-top: 10px;
+        margin: 0 auto;
+        @media screen and (min-width: 996px) {
+            max-width: 620px;
+        }
+    }
+    &__phone{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

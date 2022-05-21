@@ -28,6 +28,7 @@ const initForm = {
 export const CityContact = ({ city, phones }: ICityContactProps) => {
 	const { updateNotification } = useContext(NotificationContext);
 	const [open, setOpen] = useState<boolean>(false);
+	//TODO: change to Formik
 	const [callback, setCallback] = useState<boolean>(false);
 	const [form, setForm] = useState<{
 		phone: { value: string; valid: boolean; touch: boolean };

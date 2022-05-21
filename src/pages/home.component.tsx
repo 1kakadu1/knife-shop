@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 import { CardPost } from '../components/ cards/card-post/card-post.component';
-import { cardPostsMock } from '../components/ cards/card-post/card-post.mock';
+import { cardPostsMock } from '../global-mock/card-post.mock';
 import { Container } from '../components/container/container.component';
 import { Footer } from '../components/footer/footer.component';
 import { Header } from '../components/header/header.component';

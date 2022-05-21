@@ -2,12 +2,31 @@ import React from 'react';
 import { Container } from '../../container/container.component';
 import './text-info.scss';
 
-export const TextInfo = ({ text, title }: { text: string; title: string }) => {
+export const TextInfo = ({
+	text,
+	title,
+	background,
+	children,
+}: {
+	text?: string;
+	title?: string;
+	background?: string;
+	children?: JSX.Element;
+}) => {
 	return (
-		<div className="text-info">
+		<div
+			className="text-info"
+			style={{ backgroundImage: background ? `url(${background})` : undefined }}
+		>
 			<Container>
-				<h1 className="text-info__title">{title}</h1>
-				<p className="text-info__desc">{text}</p>
+				{children ? (
+					children
+				) : (
+					<>
+						<h1 className="text-info__title">{title || ''}</h1>
+						<p className="text-info__desc">{text || ''}</p>
+					</>
+				)}
 			</Container>
 		</div>
 	);

@@ -9,6 +9,8 @@ import { OrderPage } from '../pages/order/order.component';
 import { ContactPage } from '../pages/contact/contact.component';
 import { AboutPage } from '../pages/about/about.component';
 import { OrderAndSellPage } from '../pages/order-and-sell/order-and-sell.component';
+import { NewsPage } from '../pages/news/news.component';
+import { NewsSinglePage } from '../pages/news/news-single.component';
 
 export const routesPublic: IRouteItem[] = [
 	{
@@ -42,7 +44,7 @@ export const routesPublic: IRouteItem[] = [
 	{
 		name: 'News',
 		private: false,
-		element: <ProductsPage />,
+		element: <NewsPage />,
 		location: RoutsPath.news,
 		path: RoutsPath.news + '/:page',
 	},
@@ -56,9 +58,9 @@ export const routesPublic: IRouteItem[] = [
 	{
 		name: 'News single',
 		private: false,
-		element: <ProductPage />,
+		element: <NewsSinglePage />,
 		location: RoutsPath.news,
-		path: RoutsPath.news + '/:slug',
+		path: RoutsPath.news_single + '/:slug',
 	},
 	{
 		name: 'Cart',
