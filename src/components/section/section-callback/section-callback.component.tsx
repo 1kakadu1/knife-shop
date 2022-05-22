@@ -16,7 +16,7 @@ export const CallbackSection = () => {
 					<h2 className="callback-section__title">
 						Есть вопросы? Напишите нам или{' '}
 						<span className="callback-section__phone" onClick={scrollTop}>
-							остовте заявку на обратный звонок
+							оставьте заявку на обратный звонок
 						</span>
 					</h2>
 					<div className="callback-section__input">

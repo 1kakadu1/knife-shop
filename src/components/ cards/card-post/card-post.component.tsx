@@ -16,7 +16,12 @@ export const CardPost = ({ data, className, shadow }: ICardPostProps) => {
 				>
 					<>
 						<h3 className="card-post__title">{data.title}</h3>
-						{data.desc && <p className="card-post__desc">{data.desc}</p>}
+						{data.desc && (
+							<div
+								className="card-post__desc"
+								dangerouslySetInnerHTML={{ __html: data.desc }}
+							/>
+						)}
 						<p className="card-post__date">{data.date}</p>
 					</>
 				</Link>

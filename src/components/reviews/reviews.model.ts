@@ -1,7 +1,7 @@
-import { IProductReview } from '../../store/reducer/product/product.model';
+import { IReviewData } from '../../store/model/models';
 
 export interface IReviewsProps {
 	className?: string;
-	reviews?: IProductReview[];
+	reviews?: IReviewData[];
 	swiperRef?: any;
 }

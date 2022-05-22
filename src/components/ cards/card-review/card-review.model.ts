@@ -1,6 +1,6 @@
-import { IProductReview } from '../../../store/reducer/product/product.model';
+import { IReviewData } from '../../../store/model/models';
 
 export interface ICardReviewProps {
-	review: IProductReview;
+	review: IReviewData;
 	className?: string;
 }

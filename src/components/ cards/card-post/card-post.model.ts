@@ -1,3 +1,5 @@
+import { IReviewData } from '../../../store/model/models';
+
 export interface ICardPostProps {
 	data: IPostData;
 	className?: string;
@@ -11,4 +13,5 @@ export interface IPostData {
 	preview: string;
 	id: string;
 	href: string;
+	reviews?: IReviewData[];
 }

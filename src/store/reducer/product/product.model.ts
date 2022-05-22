@@ -1,3 +1,4 @@
+import { IReviewData } from '../../model/models';
 import { ICategoryItemData } from '../category/category.model';
 
 export interface IProductState {
@@ -20,7 +21,7 @@ export interface IProductData {
 	usersStars: number;
 	size: string;
 	gallery?: IGalleryData[];
-	reviews?: IProductReview[];
+	reviews?: IReviewData[];
 	сharacteristic?: IProductCharacteristic[];
 }
 
@@ -32,23 +33,7 @@ export interface IProductCharacteristic {
 	}[];
 }
 
-export interface IProductReview {
-	user: IUserData;
-	comment: string;
-	userStars?: number;
-	date: string;
-	id: string;
-}
-
 export interface IGalleryData {
 	original: string;
 	thumbnail: string;
-}
-
-//TODO: заменить на interface пользователя
-export interface IUserData {
-	preview?: string;
-	name: string;
-	usName: string;
-	id: string;
 }

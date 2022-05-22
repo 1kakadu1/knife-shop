@@ -1,10 +1,7 @@
-import {
-	IProductReview,
-	IUserData,
-} from '../../../store/reducer/product/product.model';
+import { IReviewData, IUserData } from '../../../store/model/models';
 
 export interface IFormsComments {
 	className?: string;
-	onSend: (comment: IProductReview) => void;
+	onSend: (comment: IReviewData) => void;
 	user: IUserData;
 }

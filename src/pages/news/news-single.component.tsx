@@ -5,8 +5,11 @@ import { useParams } from 'react-router-dom';
 import { Box } from '../../components/box/box.component';
 import { Breadcrumbs } from '../../components/breadcrumbs/breadcrumbs.component';
 import { Container } from '../../components/container/container.component';
+import { Divider } from '../../components/divider/divider.component';
 import { Footer } from '../../components/footer/footer.component';
 import { Header } from '../../components/header/header.component';
+import { Reviews } from '../../components/reviews/reviews.component';
+import { SubscribeSection } from '../../components/section/subscribe-section/subscribe-section.component';
 import { RoutsPath } from '../../routes/routes.model';
 import { toNewsSelector } from '../../store/reducer/news/news.selector';
 import { toSingleNewsAction } from '../../store/reducer/single-news/single-news.reducer';
@@ -53,13 +56,37 @@ export const NewsSinglePage = () => {
 						]}
 					/>
 				</Box>
-
-				<div className="product__info">
-					<div className="product__info-left">{}</div>
-					<div className="product__info-right"></div>
+				<div>
+					{news ? (
+						<>
+							<div className="news-info">
+								<div className="news-info__header">
+									<div className="news-info__header-title">{newsName}</div>
+									<img
+										src={news.preview}
+										alt=""
+										className="news-info__header-preview"
+									/>
+								</div>
+								<div
+									className="news-info__body"
+									dangerouslySetInnerHTML={{ __html: news?.desc }}
+								/>
+							</div>
+							<Divider />
+							<div className="news__reviews">
+								<div className="news__reviews-title">
+									Последние комментарии:
+								</div>
+								<Reviews reviews={news?.reviews} />
+							</div>
+						</>
+					) : (
+						'Такой новости нет'
+					)}
 				</div>
-				<div className="product__tabs"></div>
 			</Container>
+			<SubscribeSection />
 			<Footer />
 		</div>
 	);

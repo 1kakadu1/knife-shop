@@ -1,7 +1,7 @@
-import { IProductReview } from '../store/reducer/product/product.model';
+import { IReviewData } from '../store/model/models';
 import { users } from './users.mock';
 
-export const reviewsProducts: IProductReview[] = [
+export const reviewsProducts: IReviewData[] = [
 	{
 		user: users[2],
 		comment: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor luctus et consectetur augue. 

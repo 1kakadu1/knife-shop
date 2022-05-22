@@ -25,6 +25,14 @@
         -webkit-box-orient: vertical;
         color: $black;
         overflow: hidden;
+        &>*{
+            font-size: 14px;
+            line-height: 28px;
+            color: $black;
+        }
+        & br{
+            display: none;
+        }
     }
     &__title{
         display: -webkit-box;
